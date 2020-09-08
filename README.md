@@ -1,14 +1,8 @@
 # Moving from RESTful to EVENTful
 
-
-## Greatest Outline Ever
-Riffing on the classic "Greatest Sales Deck I've Ever Seen" (https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0) idea.
-
- 1. Name a Big, Relevant Change in the World
- 2. Show There’ll Be Winners and Losers
- 3. Tease the Promised Land
- 4. Introduce Features as “Magic Gifts” for Overcoming Obstacles to the Promised Land
- 5. Present Evidence that You Can Make the Story Come True
+ * [Book Outline](#Book-Outline)
+ * [Greatest Outline Ever](#Greatest-Outline-Ever)
+ * [Gutter](#Gutter)
 
 ## Book Outline
 Here's our working outline
@@ -74,11 +68,21 @@ Here's our working outline
  * What about observability and monitoring?
  * Gateways?
 
-## GUTTER
+## Greatest Outline Ever
+Riffing on the classic "Greatest Sales Deck I've Ever Seen" (https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0) idea.
+
+ 1. Name a Big, Relevant Change in the World
+ 2. Show There’ll Be Winners and Losers
+ 3. Tease the Promised Land
+ 4. Introduce Features as “Magic Gifts” for Overcoming Obstacles to the Promised Land
+ 5. Present Evidence that You Can Make the Story Come True
+
+## Gutter
 
 ### How to build an EVENtful system?
  * The platform you'll need
  * Testing
  * Maintaining/Modifying
  * Migrating from a RESTful system
+
 
