@@ -117,4 +117,15 @@ Riffing on the classic "Greatest Sales Deck I've Ever Seen" (https://medium.com/
  * Maintaining/Modifying
  * Migrating from a RESTful system
 
+# Hard Parts
+
+* Difficult to get started with an event design - which part of the ystem to attack
+* Never feeling confident about correctness of the model/domain/events defined etc -> what can I do? vs what can I do with limited time?
+* too many diff. infrastructures, protocols, tools, patterns - which parts do what?
+* Thinking reactively is difficult
+* thinking like an event consumer (most people don't think about this as a problem)
+* Understanding who the event is for (most people don't think about this as a problem)
+* Constraints of real world: time, security/governance, talent, etc...
+
+The method gives you a starting point, gives you confidence in waht you are creating, helps you think reactively and as a consumer and works within your constraints.
 
