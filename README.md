@@ -68,6 +68,31 @@ Here's our working outline
  * What about observability and monitoring?
  * Gateways?
 
+## Additional Notes
+Some other angles to the story.
+
+### Output/Assets
+What kinds of assets should be produced in the process of designing EVENTful APIs?
+
+ * API story (Markdown?)
+ * List of events (pub'd and sub'd) (simple text list)
+ * Service Vocabulary (data properties, event/action names) (text document)
+ * Workflow Diagram (WSD?)
+ * machine-readable API defintion (AsyncAPI?, something else?)
+
+Turn this over to developers
+
+Note tha these assets need to exist for developers, but need not be "completed" before coding. Classic iterations and looping MUST be supported.
+
+How is this different from RESTful assets? 
+
+ * List of events is new
+ * machine-readable is not OpenAPI
+
+Adopt a consumer POV.
+
+
+
 ## Greatest Outline Ever
 Riffing on the classic "Greatest Sales Deck I've Ever Seen" (https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0) idea.
 
