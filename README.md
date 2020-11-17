@@ -78,6 +78,7 @@ What kinds of assets should be produced in the process of designing EVENTful API
  * List of events (pub'd and sub'd) (simple text list)
  * Service Vocabulary (data properties, event/action names) (text document)
  * Workflow Diagram (WSD?)
+ * messages/structures 
  * machine-readable API defintion (AsyncAPI?, something else?)
 
 Turn this over to developers
@@ -86,11 +87,17 @@ Note tha these assets need to exist for developers, but need not be "completed" 
 
 How is this different from RESTful assets? 
 
- * List of events is new
- * machine-readable is not OpenAPI
+ * List of events is new (but similar to actions in vocabulary)
+ * messages/structures (similar to media types for RESTful designs)
+ * machine-readable is not OpenAPI but AsyncAPI instead
 
 Adopt a consumer POV.
 
+### Questions
+
+ * do we need a canvas document?
+ * do we need an ALPS description (to generate deinfition (asyncapi?)
+ * do we need metrics (KPIs/OKRs)?
 
 
 ## Greatest Outline Ever
