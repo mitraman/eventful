@@ -40,7 +40,7 @@ Here's our working outline
 ### Design factors/costs:
  * Build target (e.g. React, MS, serverless, cloud, kafka, blah, blah)
  * Team structure/size/shape
- *  Maintaining an event-driven system
+ * Maintaining an event-driven system
     
 ### The [X] method 
  * Output of the method
