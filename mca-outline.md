@@ -73,7 +73,7 @@ TK
  * Implementation   
    * Kafka Storage
    * MQTT Interface
-   * Build Pipeline
+   * Test/Build Pipeline
  * Summary 
  * References
 
@@ -87,6 +87,19 @@ TK
  * Summary
  * References
 
-## Code Examples (??)
+## Appendix A: Onboarding Example Install/Setup (5)
+ * Heroku
+ * NodeJS/NPM
+ * Postman Testing (??)
+ * Build Pipeline (???)
+ 
+## Appendix B: Design Assets (10)
+ * Onboarding Event Story
+ * Onboarding Persona List
+ * Onboarding Workflow Diagram
+ * Onboarding Domain Vocabulary
+ * Onboarding Interface Definitions
+ 
+## Appendix C: Code Examples (???)
 More on the code, choices made, where to go.
 
