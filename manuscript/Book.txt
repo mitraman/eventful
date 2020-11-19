@@ -4,4 +4,7 @@ ch02-what.md
 ch03-how.md
 ch04-example.md
 ch05-parting.md
+cx01-setup.md
+cx02-assets.md
+cx03-code.md
 
