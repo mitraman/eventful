@@ -1,6 +1,6 @@
 # How To Make Your Solutions More EVENTful 
 
-_(20 pgs)_
+*(20 pgs)*
 
 ## Highlights
 TK

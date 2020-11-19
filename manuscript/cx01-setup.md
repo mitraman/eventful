@@ -1,6 +1,6 @@
 # Appendix A: Onboarding Example Install/Setup 
 
-_(5 pgs)_
+*(5 pgs)*
 
 ## Heroku
 TK

@@ -1,6 +1,6 @@
 # What You Need to Know 
 
-_(15 pgs)_
+*(15 pgs)*
 
 ## Highlights
 TK

@@ -1,6 +1,6 @@
-## Parting Thoughts (5)
+# Parting Thoughts
 
-_(5 pgs)_
+*(5 pgs)*
 
 ## Where to Start
 TK

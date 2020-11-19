@@ -1,6 +1,6 @@
 # Appendix B: Design Assets 
 
-_(10 pgs)_
+*(10 pgs)*
 
 ## Onboarding Event Story
 TK

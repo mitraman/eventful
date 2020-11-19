@@ -1,6 +1,6 @@
 # Why EVENTful? 
 
-_(10 pgs)_
+*(10 pgs)*
 
 ## Highlights
 TK

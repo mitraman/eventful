@@ -1,6 +1,6 @@
 # Customer Onboarding Example 
 
-_(15 pgs)_
+*(15 pgs)*
 
 ## Highlights
 TK

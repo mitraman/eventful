@@ -1,6 +1,6 @@
 # Preface
 
-_(3 pgs)_
+*(3 pgs)*
 
 ## Who Sould Read This Book
 TK
