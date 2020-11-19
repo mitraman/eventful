@@ -1,4 +1,7 @@
 ch00-preface.md
-ch01.md
-ch02.md
-ch03.md
+ch01-why.md
+ch02-what.md
+ch03-how.md
+ch04-example.md
+ch05-parting.md
+
