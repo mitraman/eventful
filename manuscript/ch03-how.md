@@ -23,20 +23,30 @@ TK
 ## Design Process
 TK
 
-   * Uncover the Story (output: Story Doc)
+### Uncover the Story 
 TK
 
-### Identify the Actors (output: Persona List)
+*(output: Story Doc)*
+
+### Identify the Actors 
 TK
 
-### Describe the Interactions (output: workflow Diagram)
+*(output: Persona List)*
+
+### Describe the Interactions 
 TK
 
-### Document the Data/Events (output: Domain Vocabulary)
+*(output: workflow Diagram)*
+
+### Document the Data/Events 
 TK
 
-### Define the Interface (output: AsyncAPI/proto3 Docs)
+*(output: Domain Vocabulary)*
+
+### Define the Interface 
 TK
+
+*(output: AsyncAPI/proto3 Docs)*
 
 ## Summary
 TK

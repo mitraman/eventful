@@ -8,25 +8,31 @@ TK
 ## Business Demands
 TK
 
-### Adding Speed (both real-time, and build-time)
+### Adding Speed & Agility
 TK
 
-### Increasing Connections (between components and businesses)
+*(both real-time, and build-time)*
+
+### Increasing Connections 
 TK
 
-### Expanding Reach (internal reach, and market expansion)
+*(between components and businesses)*
+
+### Expanding Reach 
 TK
+
+*(internal reach, and market expansion)*
 
 ## Techincal Challenges
 TK
 
-### The Rise of Asynchronous and reactive programming
+### The Rise of Asynchronous and Reactive programming
 TK
 
 ### The Growth of Microservices 
 TK
 
-### The Power of Serverless and Cloud native architecture
+### The Power of Serverless and Cloud Native Architecture
 TK
 
 ## Where Events Fit In
