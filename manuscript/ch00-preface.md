@@ -2,13 +2,13 @@
 
 *(3 pgs)*
 
-## Who Sould Read This Book
+## Who Should Read This Book?
 TK
 
-## What's Covered
+## What's Covered?
 TK
 
-## What's Not
+## What's Not Covered?
 TK
 
 ## Acknowledgements
