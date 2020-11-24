@@ -1,4 +1,4 @@
-# Why EVENTful? (Mike)
+# 1. Why EVENTful? (Mike)
 
 *(10 pgs)*
 
