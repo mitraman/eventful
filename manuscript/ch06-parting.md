@@ -1,6 +1,6 @@
-# Parting Thoughts
+# Parting Thoughts (Ronnie)
 
-*(5 pgs)*
+*(7 pgs)*
 
 ## Highlights
 tK
