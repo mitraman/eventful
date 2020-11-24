@@ -10,13 +10,15 @@ TK
  * Acknowledgements
  
 ## Why EVENTful? (10)
+ * From RESTful to Eventful (what is Eventful intro)
  * Highlights
- * Business Demands
+ * Why Businesses need Eventful Systems
+   * Market forces (fragementation of services, rising consumer expectations, pressure on cost optimisation)
    * Adding Speed (both real-time, and build-time)
    * Increasing Connections (between components and businesses)
    * Expanding Reach (internal reach, and market expansion)
- * Techincal Challenges
-   * The Rise of Asynchronous and reactive programming
+ * Why Now? Technology is changing
+   * The Rise of Asynchronous and reactive programmes
    * The Growth of Microservices 
    * The Power of Serverless and Cloud native architecture
  * Where Events Fit In
@@ -25,13 +27,17 @@ TK
  * Summary
  * References
  
-## What You Need to Know (15)
+## The EVENTFul Architecture (15)
  * Highlights
  * What is EVENTful?
    * Event Notification
    * Event-Carried State
    * CQRS
    * Event Streaming/Sourcing
+ * The Eventful System (what are the important parts)
+   * Infra
+   * Messages
+   * Consumers and Providers
  * EVENTful Infrastructure  
    * Data Storage
    * Message Brokers
@@ -46,7 +52,18 @@ TK
  * Summary
  * References
  
-## How To Make Your Solutions More EVENTful (15)
+## What You Need to Know (15)
+ * Highlights
+ * Coupling
+   * The myth of loose coupling
+   * Message coupling
+ * Distance, Space and time
+   * Eventful chattiness
+   * Local vs Internet
+ * Interacton Patterns (needed a third thing)
+ * Summary
+ 
+## Designing Evevntful systems (15)
  * Highlights
  * Common Patterns
    * Filtering
@@ -62,6 +79,7 @@ TK
  * Summary
  * References
  
+ (would prob. kill this or try to weave in)
 ## Customer Onboarding Example (15)
  * Highlights
  * Design
