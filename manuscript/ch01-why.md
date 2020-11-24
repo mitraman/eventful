@@ -1,4 +1,6 @@
-# 1. Why EVENTful? (Mike)
+{mainmatter}
+
+# Why EVENTful? (Mike)
 
 *(10 pgs)*
 

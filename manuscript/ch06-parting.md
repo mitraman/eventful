@@ -1,4 +1,4 @@
-# 6. Parting Thoughts (Ronnie)
+# Parting Thoughts (Ronnie)
 
 *(7 pgs)*
 

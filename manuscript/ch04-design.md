@@ -1,4 +1,4 @@
-# 4. Designing EVENTful systems (Mike) 
+# Designing EVENTful systems (Mike) 
 
 *(20 pgs)*
 

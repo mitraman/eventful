@@ -1,4 +1,4 @@
-# 5. Customer Onboarding Example (Mike)
+# Customer Onboarding Example (Mike)
 
 *(15 pgs)*
 

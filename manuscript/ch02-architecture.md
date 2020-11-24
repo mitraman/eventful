@@ -1,4 +1,4 @@
-# 2. The EVENTful Architecture (Ronnie)
+# The EVENTful Architecture (Ronnie)
 
 *(15 pgs)*
 

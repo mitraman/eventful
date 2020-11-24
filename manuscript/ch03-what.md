@@ -1,4 +1,4 @@
-# 3. What You Need to Know (Ronnie)
+# What You Need to Know (Ronnie)
 
 *(15 pgs)*
 
