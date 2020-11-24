@@ -1,11 +1,14 @@
 # Moving from RESTful to EVENTful
 
- * [Book Outline](#Book-Outline)
+ * [Established Outline](mca-outline.md)
+ * [Ronnie's Method](rm-method.md)
+ * [Outline Notes](#Book-Outline)
  * [Greatest Outline Ever](#Greatest-Outline-Ever)
+ * [Hard Parts](#Hard-Parts)
  * [Gutter](#Gutter)
 
 ## Book Outline
-Here's our working outline
+Here's some sample outline elements
 
 ### Why EVENTful? Why now?
  * Asynchronous and reactive programming
