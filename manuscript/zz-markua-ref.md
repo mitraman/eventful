@@ -1,4 +1,4 @@
-# Chapter Two
+# Markua Reference 
 
 Here are some quick Markdown examples to get you started.
 
@@ -14,4 +14,4 @@ Here's how you insert an image from the resources folder:
 
 ![Palm Trees](palm-trees.jpg)
 
-Chapter 3 tells you how to make a preview of your book.
+
