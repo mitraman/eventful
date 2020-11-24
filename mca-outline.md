@@ -1,4 +1,4 @@
-# Moving from RESTful to Eventful
+# Moving from RESTful to EVENTful
 
 ## Foreword (???)
 TK
@@ -10,8 +10,8 @@ TK
  * Acknowledgements
  
 ## Why EVENTful? (10)
- * From RESTful to Eventful (what is Eventful intro)
  * Highlights
+ * From RESTful to EVENTful (what is Eventful intro)
  * Why Businesses need Eventful Systems
    * Market forces (fragementation of services, rising consumer expectations, pressure on cost optimisation)
    * Adding Speed (both real-time, and build-time)
@@ -57,13 +57,15 @@ TK
  * Coupling
    * The myth of loose coupling
    * Message coupling
- * Distance, Space and time
+ * Distance
    * Eventful chattiness
    * Local vs Internet
- * Interacton Patterns (needed a third thing)
+ * Time
+   * Interacton Patterns
+   * ???
  * Summary
  
-## Designing Evevntful systems (15)
+## Designing EVENTful systems (15)
  * Highlights
  * Common Patterns
    * Filtering
@@ -79,8 +81,10 @@ TK
  * Summary
  * References
  
- (would prob. kill this or try to weave in)
 ## Customer Onboarding Example (15)
+
+ *(would prob. kill this or try to weave in)*
+
  * Highlights
  * Design
    * Story
