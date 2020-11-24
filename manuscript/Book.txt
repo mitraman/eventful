@@ -1,9 +1,10 @@
 ch00-preface.md
 ch01-why.md
-ch02-what.md
-ch03-how.md
-ch04-example.md
-ch05-parting.md
+ch02-arhitecture.md
+ch03-what.md
+ch04-design.md
+ch05-example.md
+ch06-parting.md
 cx01-setup.md
 cx02-assets.md
 cx03-code.md

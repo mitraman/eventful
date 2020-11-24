@@ -1,4 +1,4 @@
-# How To Make Your Solutions More EVENTful 
+# Designing EVENTful systems 
 
 *(20 pgs)*
 
