@@ -1,6 +1,6 @@
 ch00-preface.md
 ch01-why.md
-ch02-arhitecture.md
+ch02-architecture.md
 ch03-what.md
 ch04-design.md
 ch05-example.md
