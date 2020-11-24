@@ -8,16 +8,16 @@ TK
 ## Coupling
 TK
 
-### The myth of loose coupling
+### The Myth of Loose Coupling
 TK
 
-### Message coupling
+### Message Coupling
 TK
 
 ## Distance
 TK
 
-### Eventful chattiness
+### Eventful Chattiness
 TK
 
 ### Local vs Internet
@@ -26,7 +26,9 @@ TK
 ## Time
 TK
 
-### Interacton Patterns
+*(runtime latency, build-time latency, design-time latency?)*
+
+### Interaction Patterns(?)
 TK
 
 ### ???
