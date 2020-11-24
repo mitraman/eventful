@@ -3,6 +3,7 @@
  * [Established Outline](mca-outline.md)
  * [Ronnie's Method](rm-method.md)
  * [Outline Notes](#Book-Outline)
+ * [Style Elements Notes](style-elements.md)
  * [Greatest Outline Ever](#Greatest-Outline-Ever)
  * [Hard Parts](#Hard-Parts)
  * [Gutter](#Gutter)
