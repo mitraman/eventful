@@ -90,7 +90,7 @@ TK
 ## Appendix A: Onboarding Example Install/Setup (5)
  * Heroku
  * NodeJS/NPM
- * Postman Testing (??)
+ * Jest Testing Tool 
  * Build Pipeline (???)
  
 ## Appendix B: Design Assets (10)
