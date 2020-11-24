@@ -1,4 +1,4 @@
-# The EVENTFul Architecture
+# The EVENTful Architecture
 
 *(15 pgs)*
 

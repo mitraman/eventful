@@ -33,10 +33,8 @@ TK
 
 *(internal reach, and market expansion)*
 
-## Why Now? 
+## Why Now? Technology is Changing
 TK
-
-*Technology is changing*
 
 ### The Rise of Asynchronous and Reactive 
 TK
