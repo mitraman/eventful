@@ -1,3 +1,4 @@
+{id: ch02}
 # 2. The EVENTful Architecture (Ronnie)
 
 *(15 pgs)*
@@ -5,6 +6,7 @@
 ## Highlights
 TK
 
+{id: ch02-eventful}
 ## What is EVENTful?
 TK
 
