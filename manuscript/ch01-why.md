@@ -9,7 +9,7 @@
 TK
 
 ## From RESTful to EVENTful 
-For close to twenty years, the "common standard" of APIs on the web has been summed up in one word: "RESTful." This notion of how APIs should be designed and implemented stems from Roy Fielding's now (in)famous 2001 PhD dissertation[^ch02-fielding] which contained a single chapter devoted to his proposed architectural style "Representational State Transfer" or REST. For all sorts of reasons, Fielding's dissertation has been adopted, debated, and (to here his telling) mis-understood by thousands of software developers over the ensuing years. 
+For close to twenty years, the "common standard" of APIs on the web has been summed up in one word: "RESTful." This notion of how APIs should be designed and implemented stems from Roy Fielding's now (in)famous 2001 PhD dissertation[^ch01-fielding] which contained a single chapter devoted to his proposed architectural style "Representational State Transfer" or REST. For all sorts of reasons, Fielding's dissertation has been adopted, debated, and (to here his telling) mis-understood by thousands of software developers over the ensuing years. 
 
 It is true that web service and API designers, developers, and software architects have promoted, debated, and derided the notion of RESTful APIs in successive waves over the years with all sorts of pundits declaring REST "dead" and offering some other current practice as “the new REST” or, even better, "the REST killer."  
 
