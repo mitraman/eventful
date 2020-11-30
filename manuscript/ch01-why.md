@@ -67,7 +67,7 @@ TK
 
 ## References
 
- * [^ch01Fielding]: <https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm>
+[^ch01Fielding]: <https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm>
 
 
 
