@@ -13,7 +13,7 @@ A trend that both of us have been noticing, as we talk to organizations large an
 
 {blurb, class: info}
 We'll cover a more detailed definition of EVENTful and different ways you can implement event APIs in [Chapter 2](#ch02-eventful}.
-{blurb}
+{/blurb}
 
 For close to twenty years, the "common standard" of APIs on the web has been summed up in one word: "RESTful." This notion of how APIs should be designed and implemented stems from Roy Fielding's now (in)famous 2001 PhD dissertation[^ch01-fielding] which contained a single chapter devoted to his proposed architectural style "Representational State Transfer" or REST. For all sorts of reasons, Fielding's dissertation has been adopted, debated, and (to hear Fielding's own telling) mis-understood by thousands of software developers over the ensuing years. 
 
