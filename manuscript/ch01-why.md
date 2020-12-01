@@ -11,20 +11,19 @@ TK
 ## From RESTful to EVENTful 
 A trend that both of us have been noticing, as we talk to organizations large and small about sofware arhtecture and design, is that companies that previously worked to standardize on using only _RESTful_ API patterns are now starting to incoporate another style of APIs; ones that we prefer to call _EVENTful_ APIs. These are APIs that rely on interaction patterns different thatn REST's client-server and call-response model. Instead, EVENTful APIs support a publish-subscribe style interaction where any service can _publish_ one or more channels (sometimes called _topics_) to which any number of other services or clients can _subscribe_. Subscribers receive data that is pushed to them any time a publisher has new data that matches the registered topic. Because new messages are sent as soon as publishers have new data, this type of API call is initiated by domain events (users logging, serices writing, updating, or removing data, etc.) instead of bein initiated by a client somewhere sending a request to a server.
 
-{blurb, class: info}
-We'll cover a more detailed definition of EVENTful and different ways you can implement event APIs in [Chapter 2](#ch02-eventful}.
+{blurb, class: discussion}
+We'll cover a more detailed definition of EVENTful and different ways you can implement event APIs in [Chapter 2](#ch02-eventful).
 {/blurb}
 
 For close to twenty years, the "common standard" of APIs on the web has been summed up in one word: "RESTful." This notion of how APIs should be designed and implemented stems from Roy Fielding's now (in)famous 2001 PhD dissertation[^ch01-fielding] which contained a single chapter devoted to his proposed architectural style "Representational State Transfer" or REST. For all sorts of reasons, Fielding's dissertation has been adopted, debated, and (to hear Fielding's own telling) mis-understood by thousands of software developers over the ensuing years. 
 
 [^ch01-fielding]: <https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm>
 
-It is true that web service and API designers, developers, and software architects have promoted, debated, and derided the notion of RESTful APIs in successive waves over the years with all sorts of pundits declaring REST "dead" and offering some other current practice as “the new REST” or, even better, "the REST killer."  
+Of course, REST is not the only API style available to organizations. Among the more popular enterprise-level API patterns companies have used over the years are Remote Procedure Call such as Google's gRPC, distributed objects like the SOAP protocol, and remote data services like GraphQL. All these patterns are supported by the HTTP protocol. There has also been a very successful event-driven API pattern based another protocol called MQTT. 
 
-As the REST debate goes on, another important approach has continued to grow more common and more relevant for APIs today — that of event-based or as we are calling them them, EVENTful API designs. In our visits with companies around the world, almost every one of them are working on adding EVENTful services to their API ecosystem. And there are quite a few variations on what EVENTful means. 
+So, if REST has been around for so long and so many options exist, Why are we seeing more EVENTful implementations today than in the past? What's changed? Are we seeing an increase in EVENTful services due to technological advancements? changes in business? or new market forces?  It turns out all of these factors have contributed to the rise in EVENTful APIs in companies larges and small. And, from what we've been seeing around teh world, this increase of event-driven APIs is bringing with it both opportunities and challenges.
 
-
-*(what is Eventful intro)*
+So, before we jump into the technical details of EVENTful APIs and how you can design and implement them, let's take a moment to review the technical and business aspects of this change in the API landscape.
 
 ## Why Businesses Need EVENTful Systems
 TK
