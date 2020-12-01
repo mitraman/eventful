@@ -21,9 +21,8 @@ For close to twenty years, the common standard of APIs on the web has been summe
 
 It is important to point out that REST is not the only API style available to organizations. Among the more popular API patterns companies have used over the years are *remote procedure calls* such as Google's gRPC, *distributed objects* like the SOAP services, and *remote data services* like GraphQL. All these patterns can be implemented using the IETF's HTTP[^ch01-http] protocol. There has also been a very successful event-driven API pattern based another protocol called MQTT[^ch01-mqtt] that has been around just about as long as HTTP. 
 
-[ch01-http]: <https://tools.ietf.org/html/rfc7230>
-
-[ch01-mqtt]: <https://mqtt.org/>
+[^ch01-http]: <https://tools.ietf.org/html/rfc7230>
+[^ch01-mqtt]: <https://mqtt.org/>
 
 This leads to a number of questions: If MQTT and the other options to REST have been around for so long and so many options exist, why are we seeing more EVENTful implementations now? What's changed? Are we seeing an increase in EVENTful services due to technological advancements? Changes in business? New market forces?  It turns out all of these factors have contributed to the rise in EVENTful APIs in companies larges and small. And, from what we've been seeing around the world, this increase of event-driven APIs is bringing with it both opportunities and challenges.
 
