@@ -1,3 +1,4 @@
+{id: ch06}
 # 6. Parting Thoughts (Ronnie)
 
 *(7 pgs)*

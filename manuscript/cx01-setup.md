@@ -1,5 +1,6 @@
 {backmatter}
 
+{id: chx01}
 # Appendix A: Onboarding Example Install/Setup 
 
 *(5 pgs)*
