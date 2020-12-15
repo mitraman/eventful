@@ -88,14 +88,32 @@ EVENTful APIs can also improve a company's ability to reach across deparment bou
 TK
 
 ### The Rise of Asynchronous and Reactive 
-TK
+One of the key drivers in the inreasing demand for EVENTful systems is the rise in the use of asynchronous an reactive style programming models. One of the best-known web frameworks for reactive programming was initially created by Jordan Walke while at Facebook[^ch01-react]. Intially driven by the need to improve handheld drive user experiences, React and other similar frameworks rekindled an interest in EVENTful implementation patterns that date back to the mid-1980s when it was used to handle interactions with hardware-centric Supervisory Control and Data Acquisition (SCADA[^ch01-scada]) devices.
+
+[^ch01-react]: <https://en.wikipedia.org/wiki/React_(web_framework)>
+[^ch01-scada]: <https://en.wikipedia.org/wiki/Reactive_programming>
+
+A key principle in reactive systems is that data changes flow through the system automatically -- in "real time". However, as more and more data flows through the system, the ability of components within that system to immediately consume, evaluate, and respond to changes dimishes. For that reason, a second pillar of EVENTful systems is that responses are *asynchronous* -- the time it takes for new data flows to result in system behavior changes can vary. 
+
+Asynchronous programming[^ch01-async] is ideal for handling heavy input-output (I/O) operations, parallel processing of large amounts of data and processing long-running tasks like monitoring a package shipment or virtual project progress over time. This ability to deal with large amounts of data that might span a long period of time is the perfect match for the increased use of reactive interfaces.
+
+[^ch01-async]: <https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)>
+
+*EVENTful systems both rely upon and are driven by the use of reactive data production and asynchronous data-consumption patterns.*
 
 ### The Growth of Microservices 
-TK
+Another reason for the increase in EVENTful architecture is the continued success of the Microservice approach[^ch01-microservices] for desgining and building components. Similar to Service-Oriented Architecture (SOA[~ch01-soa]), microservices emphasizes creating small, independent components focused on a single business capability (search, data filtering, customer onboarding, etc.). Early versions of this model were introduced in the 2000s and around 2012 the name "microservices" was attached to this pattern.
+
+[^ch01-microservices]: <https://en.wikipedia.org/wiki/Microservices>
+
+Using small, independently-deployable components allows software teams to update and release their components more often and with less likelihood of internal errors. But it brings with it new challenges in the form of additional inter-component network traffic and the possibility of introducing breaking changes in the processing and data models share between components. It is these last two elements (processing and model changes) that EVENTful architecture can alleviate. In EVENTful systems, the process model can vary based on how components publish and subscribe to data flows (we'll talk more about this in [#ch03](Chapter 3)). 
+
+*EVENTful system can make it easier to modify an exsiting system built from small, independently-deployable services.*
 
 ### The Power of Serverless and Cloud Native
 TK
 
+{id: ch01-events}
 ## Where Events Fit In
 TK
 
@@ -109,7 +127,12 @@ TK
 TK
 
 ## References
-TK
+ * For more on Objectives and Key Results (OKRs), check out John Doerr's ["Measure What Matters"](https://www.penguinrandomhouse.com/books/546304/measure-what-matters-by-john-doerr-foreword-by-larry-page/)
+ * TK Reactive
+ * Tk Async
+ * TK Microservices
+ * TK Serverless
+ * TK Cloud Native
 
 
 
