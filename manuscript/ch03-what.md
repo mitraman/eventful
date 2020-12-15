@@ -1,4 +1,4 @@
-{id: ch03}
+﻿{id: ch03}
 # 3. What You Need to Know (Ronnie)
 
 *(15 pgs)*
@@ -41,7 +41,7 @@ However, the work of parsing, understanding and acting on the *contents* of a me
 
 Reducing message coupling needs to be come a primary goal for your asynchronous solution design if you are trying to reduce change costs. In fact, this is true of any software integration - if you want faster and cheaper change in a message-based integration, you'll need to focus on de-coupling your components at the messaging level. We'll describe some techniques for doing that when we dive into design in chapter {y}.
 
-## Distance
+## Distance and Size
 
 When we design systems on paper, its easy to forget about the physical realities (and constraints) of the systems that we are building. Physical distance turns out to be a big factor when it comes to asynchronous and event based designs. With today's technology, as the distance between a message producer and message consumer grows, the time it takes for messages to be communicated will grow as well. Another side-effect of distance is that the reliability of the network decreaes as well.
 
@@ -61,10 +61,25 @@ Normally, this isn't a big deal. In an eventful system, infrastructure is usuall
 
 But, chattiness becomes a problem when we add the distance factor. That's because [tk ... wait a second. Not sure this is true. need to think about it]
 
-### Local vs Internet
-TK
+### Boundaries
 
-### Hiding distance in the infrastructure
+When it comes to APIs, boundaries are really important. The modules we develop and connect together are each defined by the boundaries they create.  A module has an _inside_ where its implementation lives and it has an _outside_ which it doesn’t own. The boundary defines what’s inside and what’s outside. Getting the boundaries of a module right turns out to be really important for a software architecture.
+
+That’s because the boundaries dictate the size and complexity of a thing. If you create a module that is very big and complex, you’ll probably need a very big and complex team to work on it. There isn’t a requirement to build very small, bounded modules when you implement an Eventful architecture. But, in practice there turns out to be a nice relationship between smaller bounded services and Eventful messaging.
+
+That’s because when you make the boundaries of your components smaller, you inevitably end up with more components. More components, often leads to more communication and chattiness. Eventful systems are pretty good at handling those kinds of chattiness requirements, so its a good fit.
+
+But, we don’t just find boundaries at the component level. In most software architectures, components are grouped together into logical and physical collections. For example, you might group a collection of customer oriented services together and create a new boundary around them. In practice, we almost always need to define and understand a set of *nested* boundaries, rather than a flat structure.
+
+One kind of boundary that is particularly important is the kind that denotes an organiasational, system or physical limit. For example, most companies make a distinction between the servers that they run and operate versus the servers that they just interact with on the Internet. Another example, is the boundnary of a home IOT network that integrates with a server based system.
+
+These system level boudnaries are important to understand from an Eventful perspective. Thats because they often denote a security and physical requirement that shapes the types of interactions that they can support. In the case of an IOT system, we might use an EventFul architecture within the physical home environment, but use a RESTful architecture to communicate with a cloud based server. 
+
+In order to design an EventFUl system that is practical, we need to acknowledge that the network exists.
+
+### Circumventing the distance constraint
+
+TK RPC story as build up?
 
 TK kafka model (and others)
 
