@@ -29,7 +29,21 @@ This leads to a number of questions: If MQTT and the other options to REST have 
 So, before we jump into the technical details of EVENTful APIs and how you can design and implement them, let's take a moment to review the technical and business aspects of this change in the API landscape.
 
 ## Why Businesses Need EVENTful Systems
-TK
+You can read just about any business blog or article today and find some reference to the need for "real-time" information about your business. This focus on instant feedback is driving much of the push for digital transformation within organizations today. But getting more data faster is just a means to and end. And that "end" is the steady monitoring and improvement of your company's ability to deliver value to customers.
+
+To meet this challenge, a big part of the digital transformation journey depends on making your IT operation more responsive to small changes in the health and welfare of systems running within the company. And it also means paying attention to customer and partner demands for more up-to-date information on project status and product shipments. There are a number of businsess-related motivations driving the increased reliance on EVENTful software systems at work here and we'll focus on four of them in this chapter:
+
+Market Forces
+: The changing market, consumer demand, and operational efficiencies are all key drivers in the increase of real-time or EVENTful APIs in all types of companies, large and small.
+
+Adding Speed
+: EVENTful APIs can add speed to your runtime products and to your internal processes.
+
+Increasing Connections
+: More connections means more data points and that means more opportunity to observe and improve data flows between internal systems and systems outside the company's network. 
+
+Expanding Reach
+: Adding EVENTful APIs can expand an organizations reach at both the public API and private API levels.
 
 ### Market Forces 
 One of the reasons for the rise of EVENTful software systems can be attributed to forces in the API market itself. As more devices get added to the internet, there is bound to be a similar increase the number of APIs needed to keep them connected. And many of the recent devices that people want to connect are "headless" devices such as home alarm systems, heating and air conditioning platforms, and general building monitoring systems. And, with the increase in robots and other autonomous vehicles, there are a whole new set of APIs for monitoring and operating these devices. Finally, watches, exercise equipment, and even clothing are getting added to the API ecosystem and need to be connected, updated, and monitored. 
@@ -38,7 +52,7 @@ This growing market for API-connected devices is also driving consumer expectaio
 
 Finally, in some cases, these devices may be costly to install, maintain, and operate. Or they may bew charged with monitoring costly machinery themselves. Waiting for hours or even minutes to check to see if a piece of equipment can be idled off or needs to be fired up can result in unwanted added costs or, even worse, lost revenue. The need for near real-time response and reaction to ever-chainging conditions is one of the key drivers for automation in general and these products need real-time APIs in order to meet customer demand as well as hold a lid on operating costs.
 
-The changing market, consumer demand, and operational efficiencies are all key drivers in the increase of real-time or EVENTful APIs in all types of companies, large and small.
+*The changing market, consumer demand, and operational efficiencies are all key drivers in the increase of real-time or EVENTful APIs in all types of companies, large and small.*
 
 ### Adding Speed 
 EVENTful APIs also make it possible to add a new level of *spee* to your company's IT infrsstructure. By establishing real-time information flows, your organization and can consume and analyze information at a faster rate than traditional RESTful systems. In fact, a common problem for those adding EVENTful APIs to their API landscape is the challenge of what to do with all the new data your systems are generating. Ironically, trying to consume too much data can actually slow the organization's reaction time, too.
@@ -47,12 +61,18 @@ But the speed of information flow is just one of the benefits of adopting an EVE
 
 And, as we'll see in the [next section](#ch01-technology) on the technology aspects of adopting EVENTful APIs, implementing more real time APIs can lead to a more de-coupled and agile platform upon which you can build your IT solutions and products. By it's very nature, EVENTful API platforms rely on generalized message-passing through opaque routers. It is also relatively easy to add new messages and filters once a system is up and running. This, in turn, can lead to faster start-up times for MVP (minimum viable product) style projects that can adapt and grow over time based on consumption patterns learned from production use.
 
-EVENTful APIs can add speed to your runtime products and to your internal processes.
+*EVENTful APIs can add speed to your runtime products and to your internal processes.*
 
 ### Increasing Connections 
-TK
+Another force that is driving companies to add more EVENTful endpoints to their system is the need to _increase connections_ between both components within the organization's IT infrastucture and between customers and partners. While comes of this work to increase connections is strategic -- a way to expand and strengthen business relationships -- much of the focus on connections is part of the inevitable tide of more connected, more reactive internal systems.
 
-*(between components and businesses)*
+One example of this drive for internal, reactive connections is the rising use of in-house status dashboards to monitor both business and infrastructure health. It is more and more common today to walk into the main lobby of a company and see a giant screen displaying the real-time count of connected customers, the location of shipped goods, and/or the number of completed business transactions within the last hour.  This display is a way for divisions to monitor their business in near real-time. No need for daily, weekly, and monthly printed reports delivered via in-person meetings. Instead, anyone in the organization can call up the company dashboard and view the latest stats on the business and compare that to the company's stated objects and key results (OKRs[^ch01-okrs]).
+
+[^ch01-okrs]: <https://en.wikipedia.org/wiki/OKR>
+
+But business monitoring is just part the real-time data story. As we'll see (below) when we talk about the technology side drivers for EVENTful systems, another reason for increased connections is the ever-growing number of 'connect-able' components inside the IT shop. Most platforms offer ways to automatically "plug-in" to monitoring endpoints and stream that internal performance data straight to the same kinds of dashbaords that are displaying business metrics. But this time the screens are displaying the number of connected components around the world, the speed of transactions, error-rates, and more. These displays rely upon gigabites of real-time data streaming from every connected component and gateway within the company's network in order to present a "traffic report" on how data is moving through the system. This allows managers to essentially predict and correct network congestion and roadblocks the way transportation and logistics managers ensure the safe and timely delivery of their physical goods.
+
+*More connections means more data points and that means more opportunity to observe and improve data flows between internal systems and systems outside the company's network.*
 
 ### Expanding Reach 
 Another important element in all this is that many of the devices we've listed here depend upon a real-time interaction experience. As people jog, they want to see their steps increase in near real time. As vehicles become autonmous, they need to "see" and react to new information on the road in real time. For many product and organizatsions, real-time, EVENTul APIs are the "price of entry" into the markets they want to reach. 
@@ -61,7 +81,7 @@ There are also cases where an organization's internal systems can benefit greatl
 
 EVENTful APIs can also improve a company's ability to reach across deparment boundaries and improve internal efficiencies betweewn off-the-shelf products as well as in-house built systems. 
 
-Adding EVENTful APIs can expand an organizations reach at both the public API and private API levels.
+*Adding EVENTful APIs can expand an organizations reach at both the public API and private API levels.*
 
 {id: ch01-technology}
 ## Why Now? Technology is Changing
