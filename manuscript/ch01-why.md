@@ -65,7 +65,7 @@ And, as we'll see in the [next section](#ch01-technology) on the technology aspe
 *EVENTful APIs can add speed to your runtime products and to your internal processes.*
 
 ### Increasing Connections 
-Another force that is driving companies to add more EVENTful endpoints to their system is the need to _increase connections_ between both components within the organization's IT infrastucture and between customers and partners. While comes of this work to increase connections is strategic -- a way to expand and strengthen business relationships -- much of the focus on connections is part of the inevitable tide of more connected, more reactive internal systems.
+Another force that is driving companies to add more EVENTful endpoints to their system is the need to *increase connections* between both components within the organization's IT infrastucture and between customers and partners. While comes of this work to increase connections is strategic -- a way to expand and strengthen business relationships -- much of the focus on connections is part of the inevitable tide of more connected, more reactive internal systems.
 
 One example of this drive for internal, reactive connections is the rising use of in-house status dashboards to monitor both business and infrastructure health. It is more and more common today to walk into the main lobby of a company and see a giant screen displaying the real-time count of connected customers, the location of shipped goods, and/or the number of completed business transactions within the last hour.  This display is a way for divisions to monitor their business in near real-time. No need for daily, weekly, and monthly printed reports delivered via in-person meetings. Instead, anyone in the organization can call up the company dashboard and view the latest stats on the business and compare that to the company's stated objects and key results (OKRs[^ch01-okrs]).
 
@@ -118,7 +118,7 @@ Another reason for the increase in EVENTful architecture is the continued succes
 
 [^ch01-microservices]: <https://en.wikipedia.org/wiki/Microservices>
 
-Using small, independently-deployable components allows software teams to update and release their components more often and with less likelihood of internal errors. But it brings with it new challenges in the form of additional inter-component network traffic and the possibility of introducing breaking changes in the processing and data models share between components. It is these last two elements (processing and model changes) that EVENTful architecture can alleviate. In EVENTful systems, the process model can vary based on how components publish and subscribe to data flows (we'll talk more about this in [#ch03](Chapter 3)). 
+Using small, independently-deployable components allows software teams to update and release their components more often and with less likelihood of internal errors. But it brings with it new challenges in the form of additional inter-component network traffic and the possibility of introducing breaking changes in the processing and data models share between components. It is these last two elements (processing and model changes) that EVENTful architecture can alleviate. In EVENTful systems, the process model can vary based on how components publish and subscribe to data flows (we'll talk more about this in [Chapter 3](#ch03). 
 
 *EVENTful software architecture can make it easier to modify an exsiting system built from small, independently-deployable services.*
 
