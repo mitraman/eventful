@@ -3,7 +3,7 @@
 
 *(?? pgs)*
 
-## Kafa Storage
+## Kafka Storage
 TK
 
 ## Onboarding Services
