@@ -6,7 +6,7 @@
 *(10 pgs)*
 
 ## Highlights
-TK
+Increased business demand for real-time interactions along with advances in technology are leading organizations to update their existing RESTful API platforms with EVENTful approaches. These EVENTful APIs patterns can also improve a company's ability to successfully execute on digital transformation initiatives, improve the quality and reusability of their API platform, and provide additional ways to observe and evaluate the business value of the overall API program.
 
 {id: ch01_eventful}
 ## From RESTful to EVENTful 
@@ -159,7 +159,13 @@ As you'll see in [Chapter 3](#ch03), you can take advantage of EVENTful patterns
 Finally, the process of writing EVENTful data consumers (see [Chapter 4](#ch04)) can lead developers to writing more general and data-driven client applications that are both efficient and runtime but also resilient. They can be less prone to crashes when data models change and more able to survive minor model changes without experience additional downtime.
 
 ## Summary
-TK
+In this chapter we reviewed the an increasing trend in enterprise API programs to add more real-time, EVENTful, APIs alongside their existing RESTful implementations. This trend is drive by business demands at both the internal and external level. The need to improve the company's time to market, the increased connections across organizations as well as within the IT family and the ability expand the reach of the company's digital footprint are all leading to a rise in EVENTful services.
+
+On the technology side, improvements in asynchronous and reactive programming languages, the continued growth of microservice style components, and the power of serverless and cloud native platforms have all made the design and implementation of EVENTful architectures safer, cheapers, and easier to use.
+
+Finally, organizations that embark on this real-time journey can find a well-designed and implemented EVENTful program can help improve both the business and technological foundation of the company and improve that enterprise's ability to compete in the ever-growing real-time API market.
+
+In the next chapter, we'll dig deeper into just what it means to create an EVENTful platform and how tha differs from the commomn RESTful approach used today.
 
 ## References
  * For more on Objectives and Key Results (OKRs), check out John Doerr's ["Measure What Matters"](https://www.penguinrandomhouse.com/books/546304/measure-what-matters-by-john-doerr-foreword-by-larry-page/)
