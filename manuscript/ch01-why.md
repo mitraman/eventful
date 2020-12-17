@@ -172,8 +172,8 @@ In the next chapter, we'll dig deeper into just what it means to create an EVENT
  * TK Reactive
  * Tk Async
  * See the book ["Microservice Architecture"](https://learning.oreilly.com/library/view/microservice-architecture/9781491956328/) for an overview of microservices in general. 
- * For a hands-on experience, we recommend ["Microserivces Up and Running"](https://learning.oreilly.com/library/view/microservices-up-and/9781492075448/).
- * The booklet ["What Is Serverless?"](https://learning.oreilly.com/library/view/what-is-serverless/9781492074915/) provides a quick overview.
+ * For a hands-on microservice experience, we recommend ["Microserivces Up and Running"](https://learning.oreilly.com/library/view/microservices-up-and/9781492075448/).
+ * The booklet ["What Is Serverless?"](https://learning.oreilly.com/library/view/what-is-serverless/9781492074915/) provides a quick overview on this important subject.
  * TK Cloud Native
 
 
