@@ -139,7 +139,11 @@ The same could be said for cloud native implementations. Like the name implies, 
 TK
 
 ### Meeting Business Demands
-TK
+Inreasing your use of EVENTful services can help your organization meet the growing demaind for real-time inteactions. Employing EVENTful design patterns helps put information consumers up-front and center. Who is consuming our services and what data do they need to solve their problems? Answering these questions can result in well-targeted EVENTful APIs that help your partners, customers, and internal teams get the right data at the right time in order to do their work.
+
+EVENTful implementations can also help your teams improve the overall observability of your API platform. By monitoring the various real-time feeds, tracking consumption, and analyzing usage, you can gain important insight into just which APIs are making a positive contribution to your company's OKRs and to the organization's bottom line.
+
+Finally, using EVENTful APIs can make it easier to not only share information with partners and customers but also *consume* data from other sources and incorporate that information into your own products and services. As more organizations in your market space adopt EVENTful patterns, you and your teams can take advantage of the EVENTful opportunities around you. In some cases, your use of EVENTful APIs can give your teams the edge in competing for a share of the growing real-time market.
 
 ### Reducing Technical Challenges
 TK
@@ -151,8 +155,9 @@ TK
  * For more on Objectives and Key Results (OKRs), check out John Doerr's ["Measure What Matters"](https://www.penguinrandomhouse.com/books/546304/measure-what-matters-by-john-doerr-foreword-by-larry-page/)
  * TK Reactive
  * Tk Async
- * TK Microservices
- * TK Serverless
+ * See the book ["Microservice Architecture"](https://learning.oreilly.com/library/view/microservice-architecture/9781491956328/) for an overview of microservices in general. 
+ * For a hands-on experience, we recommend ["Microserivces Up and Running"](https://learning.oreilly.com/library/view/microservices-up-and/9781492075448/).
+ * The booklet ["What Is Serverless?"](https://learning.oreilly.com/library/view/what-is-serverless/9781492074915/) provides a quick overview.
  * TK Cloud Native
 
 
