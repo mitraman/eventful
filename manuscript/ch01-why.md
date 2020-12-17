@@ -146,7 +146,11 @@ EVENTful implementations can also help your teams improve the overall observabil
 Finally, using EVENTful APIs can make it easier to not only share information with partners and customers but also *consume* data from other sources and incorporate that information into your own products and services. As more organizations in your market space adopt EVENTful patterns, you and your teams can take advantage of the EVENTful opportunities around you. In some cases, your use of EVENTful APIs can give your teams the edge in competing for a share of the growing real-time market.
 
 ### Reducing Technical Challenges
-TK
+increasing your reliance on EVENTful patterns can also help your teams overcome a handful of technical challenges on the road to digital transformation and agile implementation. This can result in a smoother on-boarding of new services, fewer disruptions when updating existing components, and greater resilience in consuming important data.
+
+As you'll see in [Chapter 3](#ch03), you can take advantage of EVENTful patterns when designing your service interfaces and data messages. These patterns help you focus on small-grained changes and to express the design ways that reduces the chance of breaking existing interfaces. This small-grained, focused design approach can also lead to a programming patterns that encourage the use of small, indepedently-deployable data consumers and producers. This can not only speed the process of "getting from idea to install", it can also reduce the likelihood of breaking existing code.
+
+Finally, the process of writing EVENTful data consumers can lead developers to writing more general and data-driven client applications that are both efficient and runtime but also resilient. They can be less prone to crashes when data models change and more able to survive minor model changes without experience additional downtime.
 
 ## Summary
 TK
