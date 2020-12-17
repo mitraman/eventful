@@ -136,7 +136,13 @@ The same could be said for cloud native implementations. Like the name implies, 
 
 {id: ch01-events}
 ## Where Events Fit In
-TK
+So business demands are calling for more real-time services and technology advances are making it easier and more cost effective to support EVENTful implementations. That's all good. But what is it about the EVENTful approach that makes it more valuable from both the business and technology perspective?
+
+It turns out a well-executed EVENTful API program can be an important catalyst for enabling your organizatsions modernization and digital transformation efforts. That is because and EVENTful approach makes it easier to put data consumers -- customers -- first when you design your APIs. EVENTful APIs are also relatively easy to monitor and that can improve your company's ability to observe and evaluate the business value of your API platform.
+
+And, the same holds true for the technical aspects of EVENTful services. EVENTful designs usually result in fine-grained messages and narrowly-focused data feeds. Both of these can reduce the time it takes to implement a new service or data feed and decrease the chance that API changes cause downtiem in your system.
+
+Let's look at each of these aspects (business and technology) more closely.
 
 ### Meeting Business Demands
 Inreasing your use of EVENTful services can help your organization meet the growing demaind for real-time inteactions. Employing EVENTful design patterns helps put information consumers up-front and center. Who is consuming our services and what data do they need to solve their problems? Answering these questions can result in well-targeted EVENTful APIs that help your partners, customers, and internal teams get the right data at the right time in order to do their work.
@@ -150,7 +156,7 @@ increasing your reliance on EVENTful patterns can also help your teams overcome 
 
 As you'll see in [Chapter 3](#ch03), you can take advantage of EVENTful patterns when designing your service interfaces and data messages. These patterns help you focus on small-grained changes and to express the design ways that reduces the chance of breaking existing interfaces. This small-grained, focused design approach can also lead to a programming patterns that encourage the use of small, indepedently-deployable data consumers and producers. This can not only speed the process of "getting from idea to install", it can also reduce the likelihood of breaking existing code.
 
-Finally, the process of writing EVENTful data consumers can lead developers to writing more general and data-driven client applications that are both efficient and runtime but also resilient. They can be less prone to crashes when data models change and more able to survive minor model changes without experience additional downtime.
+Finally, the process of writing EVENTful data consumers (see [Chapter 4](#ch04)) can lead developers to writing more general and data-driven client applications that are both efficient and runtime but also resilient. They can be less prone to crashes when data models change and more able to survive minor model changes without experience additional downtime.
 
 ## Summary
 TK
