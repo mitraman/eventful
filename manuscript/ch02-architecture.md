@@ -14,6 +14,7 @@ While RESTful systems focused on resources, EVENTful solutions focus on actions.
 
 There are many implementation patterns that fall under the EVENTful umbrella. In the sections to follow we'll focus on the most-used patterns here. That includes:
 
+ * Webhooks and Pub-Sub
  * Event Notification (EN)
  * Event-Carried State (ECS)
  * Event Sourcing or Event Streaming (ES)
@@ -27,7 +28,7 @@ Along with the four patterns we'll cover in this book there are two more work me
    
 [^ch02-hooks]: <https://en.wikipedia.org/wiki/Webhook>
 [^ch02-pubsub]: <https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern>
-[^ch02-lindsey]; <https://web.archive.org/web/20180630220036/http://progrium.com/blog/2007/05/03/web-hooks-to-revolutionize-the-web/>
+[^ch02-lindsey]: <https://web.archive.org/web/20180630220036/http://progrium.com/blog/2007/05/03/web-hooks-to-revolutionize-the-web/>
 
 The ideas behind the publish-subscribe pattern can be traced back to a paper published in 1987 entitled "Exploiting virtual synchrony in distributed systems". In that paper, the authors state their aim is to "... provide a toolkit for distributed programming" and, to that end, describe the process of publishing a set of messages, subsribing to receive those messages, and broadcasting the puyblished messages to the list of subscribers. This should sound familiar since this is the list of operating elements of most all EVENTful systems: 1) a collection of published messages, a list of subscreibers for those messages, and a means to deliver those messages to subscribers. 
 
