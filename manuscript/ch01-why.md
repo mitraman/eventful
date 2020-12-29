@@ -167,7 +167,7 @@ Finally, organizations that embark on this real-time journey can find a well-des
 
 In the next chapter, we'll dig deeper into just what it means to create an EVENTful platform and how tha differs from the commomn RESTful approach used today.
 
-## References
+## Additional Reading
  * For more on Objectives and Key Results (OKRs), check out John Doerr's ["Measure What Matters"](https://www.penguinrandomhouse.com/books/546304/measure-what-matters-by-john-doerr-foreword-by-larry-page/)
  * TK Reactive
  * Tk Async
