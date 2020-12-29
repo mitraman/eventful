@@ -6,7 +6,7 @@
 ## Highlights
 TK
 
-{id: ch02-eventful, book: false}
+{id: ch02-eventful}
 ## What is EVENTful?
 As a bit of review, let's talk about just what we mean when we use the word *EVENTful*, especially when juxtaposed with the more common term, *RESTful*. 
 
