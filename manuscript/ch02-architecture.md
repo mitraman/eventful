@@ -34,18 +34,18 @@ Before diving into the three classic event-driven patterns of EN, ECS, and ES, t
 [^ch02-pubsub]: <https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern>
 [^ch02-lindsey]: <https://web.archive.org/web/20180630220036/http://progrium.com/blog/2007/05/03/web-hooks-to-revolutionize-the-web/>
 
-The ideas behind the *publish-subscribe* pattern can be traced back to a paper published in 1987 entitled "Exploiting virtual synchrony in distributed systems". In that paper, the authors state their aim is to "... provide a toolkit for distributed programming" and, to that end, describe the process of publishing a set of messages, subsribing to receive those messages, and broadcasting the puyblished messages to the list of subscribers. This should sound familiar since this is the list of operating elements of most all EVENTful systems: 1) a collection of published messages, a list of subscreibers for those messages, and a means to deliver those messages to subscribers. 
+The ideas behind the *publish-subscribe* pattern can be traced back to a paper published in 1987 entitled "Exploiting virtual synchrony in distributed systems"[^ch02-synchrony]. In that paper, the authors state their aim is to "... provide a toolkit for distributed programming" and, to that end, describe the process of publishing a set of messages, subsribing to receive those messages, and broadcasting the puyblished messages to the list of subscribers. This should sound familiar since this is the list of operating elements of most all EVENTful systems: 1) a collection of published messages, a list of subscreibers for those messages, and a means to deliver those messages to subscribers. 
 
 [^ch02-synchrony]: <https://dl.acm.org/doi/10.1145/37499.37515>
 
 Both pub-sub and webhooks sare examples of early reactive, asynchronous patterns that influenced the kinds event-driven architecture (EDA) we have today. In the next sections we'll cover the three you'll most commonly see and use in your own IT shop: Event Notification, Event-Carried State, and Event Sourcing (or Event Streaming).
 
 ### Event Notification (EN)
-The simplest is event notification — getting a “ping” when something happens (e.g. “a user updated their record”). 
+The simplest EVENTful pattern is **event notification**. Martin Fowler describes EN as something that happens "when a system sends event messages to notify other systems of a change in its domain."[^ch02-fowler]. This is essentially like getting a “ping” when something happens (e.g. “a user updated their account”). 
 
-Martin Fowler describes EN as something that happens "when a system sends event messages to notify other systems of a change in its domain."[^ch02-fowler]. He also points out an important aspect of the EN pattern is that it is primarily a "one-way" messaging system. Messages get sent to subscrtibers when soemthing happens and the sender does not expect any reply.  This one-way approach makes it a very de-coupled pattern that is relatively easy to implement in existing systems.
+An important aspect of the EN pattern is that it is primarily a "one-way" messaging system. Messages get sent to subscribers when something happens and the sender does not expect any reply from message receivers.  This one-way approach makes EN a good de-coupled pattern that is relatively easy to implement in existing systems.
 
-EN messages are usually quite small, too. They typically have just as few fields to identify the event title, it's name (or tag), some data items related to the event such as date/time or a link to , and possibly a link that the receiver can follow if more info is needed. Below is an example of a typical EN message. This one comes from Google's Firebase platform [ch02-firebase]:
+EN messages are usually quite small, too. They typically have just as few fields to identify the event title, it's name (or tag), some data items related to the event such as date/time or a link to , and possibly a link that the receiver can follow if more info is needed. Below is an example of a typical EN message. This one comes from Google's Firebase platform [^ch02-firebase]:
 
 {caption: "A typical event notification message"}
 ```javascript
