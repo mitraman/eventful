@@ -34,11 +34,11 @@ Before diving into the three classic event-driven patterns of EN, ECS, and ES, t
 [^ch02-pubsub]: <https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern>
 [^ch02-lindsey]: <https://web.archive.org/web/20180630220036/http://progrium.com/blog/2007/05/03/web-hooks-to-revolutionize-the-web/>
 
-The ideas behind the *publish-subscribe* pattern can be traced back to a paper published in 1987 entitled "Exploiting virtual synchrony in distributed systems"[^ch02-synchrony]. In that paper, the authors state their aim is to "... provide a toolkit for distributed programming" and, to that end, describe the process of publishing a set of messages, subsribing to receive those messages, and broadcasting the puyblished messages to the list of subscribers. This should sound familiar since this is the list of operating elements of most all EVENTful systems: 1) a collection of published messages, a list of subscreibers for those messages, and a means to deliver those messages to subscribers. 
+The ideas behind the *publish-subscribe* pattern can be traced back to a paper published in 1987 entitled "Exploiting virtual synchrony in distributed systems"[^ch02-synchrony]. In that paper, the authors state their aim is to "... provide a toolkit for distributed programming" and they describe the process of publishing a set of messages, subscribing to receive those messages, and broadcasting the published messages to the list of subscribers. This should sound familiar since this is the list of operating elements of most all EVENTful systems.
 
 [^ch02-synchrony]: <https://dl.acm.org/doi/10.1145/37499.37515>
 
-Both pub-sub and webhooks sare examples of early reactive, asynchronous patterns that influenced the kinds event-driven architecture (EDA) we have today. In the next sections we'll cover the three you'll most commonly see and use in your own IT shop: Event Notification, Event-Carried State, and Event Sourcing (or Event Streaming).
+Both pub-sub and webhooks are examples of early reactive, asynchronous patterns that influenced the kinds event-driven architecture (EDA) we use today. In the next sections we'll cover the three patterns you'll most commonly see and use in your own IT shop: Event Notification, Event-Carried State, and Event Sourcing (or Event Streaming). We'll also round out our list of patterns by exploring the Command-Query Responsibility Separation (CQRS) pattern.
 
 ### Event Notification (EN)
 The simplest EVENTful pattern is **event notification**. Martin Fowler describes EN as something that happens "when a system sends event messages to notify other systems of a change in its domain."[^ch02-fowler]. This is essentially like getting a “ping” when something happens (e.g. “a user updated their account”). 
@@ -85,6 +85,8 @@ The pattern most people associated with EVENTful design today is sometimes calle
 There are other EVENTful approaches like web hooks, publish-subscribe, and command-query responsibility separation (CQRS). The most common element in all these patterns is the reliance on asynchronous interactions — the decoupling of the requests and responses — that leads to another common expression: Eventual consistency. 
 
 **TK clean up, expand, (re)move eventual consistency stuff**
+
+Now that we have a handle on the common message patterns for EVENTful systems, the next challenge is to outline the basic platform elements -- the infrastructure needed in order to implement and operate your EVENTful systems. 
 
 ## EVENTful Infrastructure  
 TK
