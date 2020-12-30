@@ -43,15 +43,38 @@ Both pub-sub and webhooks sare examples of early reactive, asynchronous patterns
 ### Event Notification (EN)
 The simplest is event notification — getting a “ping” when something happens (e.g. “a user updated their record”). 
 
-**TK more goes here...**
+Martin Fowler describes EN as something that happens "when a system sends event messages to notify other systems of a change in its domain."[^ch02-fowler]. He also points out an important aspect of the EN pattern is that it is primarily a "one-way" messaging system. Messages get sent to subscrtibers when soemthing happens and the sender does not expect any reply.  This one-way approach makes it a very de-coupled pattern that is relatively easy to implement in existing systems.
+
+EN messages are usually quite small, too. They typically have just as few fields to identify the event title, it's name (or tag), some data items related to the event such as date/time or a link to , and possibly a link that the receiver can follow if more info is needed. Below is an example of a typical EN message. This one comes from Google's Firebase platform [ch02-firebase]:
+
+{caption: "A typical event notification message"}
+```javascript
+{
+  "message":{
+    "token":"bk3RNwTe3H0:CI2k_HHwgIpoDKCIZvvDMExUdFQ3P1...",
+    "notification":{
+      "title":"Portugal vs. Denmark",
+      "body":"great match!"
+    },
+    "data" : {
+      "Nick" : "Mario",
+      "Room" : "PortugalVSDenmark"
+    }
+  }
+}
+```
+
+[^ch02-fowler]: <https://www.martinfowler.com/articles/201701-event-driven.html>
+[^ch02-firebase]: <https://firebase.google.com/docs/cloud-messaging/concept-options>
 
 ### Event-Carried State (ECS)
 A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object…”). 
 
 **TK more goes here...**
 
+
 ### Event Streaming/Sourcing (ES)
-The pattern most people associated with EVENTful design today is commonly called event sourcing or ES. In the ES world, every event is expressed as a transaction that is shipped to anyone interested and is also recorded in a kind of “ledger” that holds all the event transactions. In the case of the user information we’ve been discussing, there would be a transaction that indicates the change of the data in each of the user record fields. This might actually be expressed as multiple transactions. One of the unique aspects of ES is that most all transactions that change state can be “reversed” with another transaction. This is often equated with basic accounting ledgers where debits can cancel out credits in the ledger.
+The pattern most people associated with EVENTful design today is sometimes called event sourcing or event streaming (ES). In the ES world, every event is expressed as a transaction that is shipped to anyone interested and is also recorded in a kind of “ledger” that holds all the event transactions. In the case of the user information we’ve been discussing, there would be a transaction that indicates the change of the data in each of the user record fields. This might actually be expressed as multiple transactions. One of the unique aspects of ES is that most all transactions that change state can be “reversed” with another transaction. This is often equated with basic accounting ledgers where debits can cancel out credits in the ledger.
 
 **TK clean up, expand**
 
