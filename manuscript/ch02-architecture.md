@@ -63,9 +63,12 @@ EN messages are usually quite small, too. They typically have just as few fields
   }
 }
 ```
-
 [^ch02-fowler]: <https://www.martinfowler.com/articles/201701-event-driven.html>
 [^ch02-firebase]: <https://firebase.google.com/docs/cloud-messaging/concept-options>
+
+Event notifications are helpful when you want to publish brief "alerts" about what is going on in a component or service. They are usually one-way messsges that don't require a reply and can be easy to add to an existing RESTful system.
+
+The downside of the EN pattern is that they usually don't carry enough information to allow a receiver to get the full picture of waht happened. For that, you need to actually carry additional data in the message. For that you need to level-up in your EVENTful patterns and employ the Event-Carried State or ECS pattern.
 
 ### Event-Carried State (ECS)
 A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object…”). 
