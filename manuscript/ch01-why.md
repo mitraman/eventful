@@ -169,12 +169,12 @@ In the next chapter, we'll dig deeper into just what it means to create an EVENT
 
 ## Additional Reading
  * For more on Objectives and Key Results (OKRs), check out John Doerr's ["Measure What Matters"](https://www.penguinrandomhouse.com/books/546304/measure-what-matters-by-john-doerr-foreword-by-larry-page/)
- * TK Reactive
- * Tk Async
+ * For more on Reactive programming you can start with the ["Reactive Manifesto"](https://www.lightbend.com/blog/reactive-manifesto-20) and this "explainer" article from ["Linux Magazine"](https://www.linux-magazine.com/Issues/2014/163/Reactive-Programming)
+ * You'll find a nice "deep dive" course on Asynchronous Programming in O'Reilly's ["Getting Started with Reactive Programming—Asynchronous Java, Promises, Actors, and Reactive Streams"](https://www.oreilly.com/learning-paths/learning-path-getting/9781492028611/)
  * See the book ["Microservice Architecture"](https://learning.oreilly.com/library/view/microservice-architecture/9781491956328/) for an overview of microservices in general. 
  * For a hands-on microservice experience, we recommend ["Microserivces Up and Running"](https://learning.oreilly.com/library/view/microservices-up-and/9781492075448/).
  * The booklet ["What Is Serverless?"](https://learning.oreilly.com/library/view/what-is-serverless/9781492074915/) provides a quick overview on this important subject.
- * TK Cloud Native
+ * Check out the book ["Cloud Native"](https://www.oreilly.com/library/view/cloud-native/9781492053811/) from O'Reilly for more on th cloud native world.
 
 
 
