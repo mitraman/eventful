@@ -28,29 +28,29 @@ There are many patterns that fall under the EVENTful umbrella. In the sections t
 B> Technically, CQRS is not an event-based pattern but it is very often used in the same place as other EVENTful patterns and can be a very handy way to manage the transition from a RESTful to an EVENTful architecture model. 
 
 ### Web Hooks and Pub-Sub 
-Along with the four patterns we'll cover in this book there are two more work mentioning: 1) webhooks [^ch02-hooks] and 2) publish-subscribe [^ch02-pubsub]. Webhooks have been around since 2007. It was Jeff Lindsey who is credited with first using the term in his blog post "Web hooks to revolutionize the web" [^ch02-lindsey] where he writes: "Web hooks are essentially user defined callbacks made with HTTP POST." 
+Before diving into the three classic event-driven patterns of EN, ECS, and ES, there are two patterns that have been around for decades worth mentioning: 1) webhooks [^ch02-hooks] and 2) publish-subscribe [^ch02-pubsub]. *Webhooks* have been around since 2007. It was Jeff Lindsey who is credited with first using the term in his blog post "Web hooks to revolutionize the web" [^ch02-lindsey] where he writes: "Web hooks are essentially user defined callbacks made with HTTP POST." 
    
 [^ch02-hooks]: <https://en.wikipedia.org/wiki/Webhook>
 [^ch02-pubsub]: <https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern>
 [^ch02-lindsey]: <https://web.archive.org/web/20180630220036/http://progrium.com/blog/2007/05/03/web-hooks-to-revolutionize-the-web/>
 
-The ideas behind the publish-subscribe pattern can be traced back to a paper published in 1987 entitled "Exploiting virtual synchrony in distributed systems". In that paper, the authors state their aim is to "... provide a toolkit for distributed programming" and, to that end, describe the process of publishing a set of messages, subsribing to receive those messages, and broadcasting the puyblished messages to the list of subscribers. This should sound familiar since this is the list of operating elements of most all EVENTful systems: 1) a collection of published messages, a list of subscreibers for those messages, and a means to deliver those messages to subscribers. 
+The ideas behind the *publish-subscribe* pattern can be traced back to a paper published in 1987 entitled "Exploiting virtual synchrony in distributed systems". In that paper, the authors state their aim is to "... provide a toolkit for distributed programming" and, to that end, describe the process of publishing a set of messages, subsribing to receive those messages, and broadcasting the puyblished messages to the list of subscribers. This should sound familiar since this is the list of operating elements of most all EVENTful systems: 1) a collection of published messages, a list of subscreibers for those messages, and a means to deliver those messages to subscribers. 
 
 [^ch02-synchrony]: <https://dl.acm.org/doi/10.1145/37499.37515>
 
-There are still many pub-sub patterns in used today including the patterns described below.  
+Both pub-sub and webhooks sare examples of early reactive, asynchronous patterns that influenced the kinds event-driven architecture (EDA) we have today. In the next sections we'll cover the three you'll most commonly see and use in your own IT shop: Event Notification, Event-Carried State, and Event Sourcing (or Event Streaming).
 
-### Event Notification
+### Event Notification (EN)
 The simplest is event notification — getting a “ping” when something happens (e.g. “a user updated their record”). 
 
 **TK more goes here...**
 
-### Event-Carried State
+### Event-Carried State (ECS)
 A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object…”). 
 
 **TK more goes here...**
 
-### Event Streaming/Sourcing
+### Event Streaming/Sourcing (ES)
 The pattern most people associated with EVENTful design today is commonly called event sourcing or ES. In the ES world, every event is expressed as a transaction that is shipped to anyone interested and is also recorded in a kind of “ledger” that holds all the event transactions. In the case of the user information we’ve been discussing, there would be a transaction that indicates the change of the data in each of the user record fields. This might actually be expressed as multiple transactions. One of the unique aspects of ES is that most all transactions that change state can be “reversed” with another transaction. This is often equated with basic accounting ledgers where debits can cancel out credits in the ledger.
 
 **TK clean up, expand**
