@@ -5,11 +5,18 @@
 
 ## Highlights
 
-Designing any API-enabled system takes a reasonable amount of technology "know-how". You need to understand at least the basics of networks, coding and integration tools to put together a solution that works with composable parts. But, for most orgniasiations its not enough for an API-enabled system to work. It also needs to work *well* - and that requires a special kind of design skill and experience.
+Designing any API-enabled system takes a reasonable amount of technology "know-how". You need to understand at least the basics of networks, coding and integration tools to put together a solution that works with composable parts. But, in most cases its not enough for an API-enabled system to just "work". It also needs to work *well* - and that requires a special kind of design skill and experience.
 
-To work well, the software needs to enable some kind of objective. For example, a business that wants to cut down on costs will want software that requires less people to maintain. An 
+Working well means that the software goes beyond doing what it's supposed to. It also needs to help your team or company with their strategic goals. For example, a business that wants to cut down on costs will want software that requires less people to maintain. A product team that wants to make lots of changes very fast will want software that is designed for fast and frequent release with low change costs. A company that wants to monetise data will want software that makes it easy to collect, tag and manage all the data in the system.
 
-In an eventful system there are three factors that have the biggest impact on design: coupling, distance and time. Let's take a look at each of these areas and the decisions that you'll need to make
+Professional software designers, developers and architects need to be good at making software that fits those kinds of needs. Just about anyone can learn how to implement a simple API - but, not everyone can make APIs that are highly maintainable, work easily together and don't break when the unexpected happens. That turns out to be the hard part. 
+
+Thankfully, over the years the software architecture industry has developed a number of techniques, philosophies, patterns, methods and styles to make this job a little bit easier. The eventful system is one of those styles and it can help you build software that works well. But, like any software style there are trade-offs to consider.
+
+An eventful system isn't the answer to every software integration problem that you'll face. It has a set of characteristics that make it well-suited for a broad number of scenarios, but it certainly isn't a silver bullet. You need to understand the characteristics of an eventful system and how they relate to the problems you are solving and the type of software that you want to build.
+
+There are three factors that are the most important to consider for an eventful system: coupling, distance and latency. We'll explore each of these factors and how they impact eventful architectures.
+
 
 ## Coupling
 
@@ -68,15 +75,27 @@ TK
 
 TK kafka model (and others)
 
-## Time
-TK need to remember what this was.. think it had to with back-office vs real-time distinctions that we used to have
+## Latency (Time)
+
+So far, we've looked at eventful systems through the lens of code changes (through coupling) and through the lens of message transmission as a factor of distance. These factors have helped us see how an eventful system impacts two software components that need to interact. But, the final characteristic we'll look at is a bit broader in nature - we need to consider how an integration architecture is impacted by the time it takes for work to be completed.
+
+In software engineering, latency is a measure of how long something takes from the point of input to the point that output is received. For example, in a software application, 
+
+### Message Latency
+
+TK impacted by the distance and chattiness factors.
+
+### Transaction Latency
+
+TK long-running tasks
+
+### Design Latency
+
+TK need to remember what this is.
 
 *(runtime latency, build-time latency, design-time latency?)*
 
-### Interaction Patterns(?)
-TK
-
-### ???
+## Something that ties all three factors together?
 TK
 
 ## Summary
