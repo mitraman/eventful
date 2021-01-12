@@ -20,17 +20,28 @@ There are three factors that are the most important to consider for an eventful 
 
 ## Coupling
 
-One of the goals you'll often hear software archtiects talk about is less or looser coupling between systems. [Coupling is TK.] The advantage of a system with less coupling between components is that change can happen indepentally. That means if we change the code in one component we won't need to change the code in other components in the system.
+In a software system, we say two components have a high degree of coupling when they are highly dependent on each other. High coupling means that a change to one software component will necessitate changes to another component that is dependent on it. This concept of coupling in software design has been with us for a long time. The term coupling comes from Larry Constantine and his work on structured design in the late 1960s and early 1970s. It's been a long time since Constantine first identified the costs of coupling, but years later software designers still find themselves battling to reduce coupling costs.
 
 [TK sidenote - Larry Constantine, structured design]
 
-Loose coupling can enable a software team to realise great benefits. In a truly loosely coupled systems, the cost of changing code is reduced because the impact of a change is well bounded. For example, if two modules A and B are loosely coupled, I can run a project to change the code in module A without having to change, test or coordinate with module B at all. That can greatly in crease change velocity and cost. 
+That's because high degrees of coupling makes software changes more expensive and harder to execute. Coupling increases the amount of change work we need to do - a change to one component requires a team to change other dependent components to avoid breaking the system. In a complex software system, changes to a component with high coupling can create a massive wave of change, as each component's change triggers a corresponding change in another dependent module. In practice, this becomes a change coordination nightmare as changes need to be managed across multiple teams. In systems with high degrees of coupling, the pace of change can grind to a halt.
 
-In realty, coupling isn't a binary characteristic that you can just turn off or on. It turns out to be a spectrum with many different facets (footnote - Eric's paper). You can get the benefits of loosely coupled systems if you can manage to actually de-couple the parts that matter. 
+### In Pursuit of Looser Coupling
 
-### The Loosely Coupled Event System
+It's no wonder that software designers prioritise patterns, principles and technologies that make it easier to reduce software coupling. In fact, the goal of _looser coupling_ between components has heavily influenced the way we design and build software. This focus has lead to object oriented programming patterns like _Abstract Factory_, _Facade_, _Visitor_ and _Iterator_ to reduce the code changes we need to make within our applications. 
 
-Event-based architectures and asynchrounous APIs are often touted as being "loosely coupled". That's true to an extent, but be careful - it may not be de-coupled in a way that is useful to your needs. As we described earlier, de-coupling software components helps us reduce the amount of effort we need to spend on writing and maintianing code. So, does a decoupled asynchronous API help us do that?
+Similarly, there's been a long history of reducing coupling for API based software architectures. Corba, XML, SOAP, REST and microservices integrations have all been introduced and popularised largely because they offer the promise of "looser coupled" systems. Each new wave of an integration style brings the promise of finally solving the "coupling problem". When the circumstances are right, this leads to a wave of mass adoption and sadly it often results in discrediting of an existing integration style. This is almost always followed closely by a wave of discontentment as software designers realise that the coupling hasn't disappeared.
+
+Within this narrative, its easy to feel like the situation is hopeless. But, don't be fooled! As an industry, we've made steady progress towards better architectural patterns that fit the technology of the day. Our ability to change software quickly has vastly improved thanks to the hard work and innovative ideas of many people. The real danger is in viewing coupling as a simple, binary property that is either "loose" or "tight". The reality is a bit more complex. In fact, in their paper on the facts of coupling, Erik Wilde and Cesare Pautasso list twelve different types of coupling that can exist, including discovery, binding, evolution and models.
+
+As the event-driven, asynchronous style of integration gains popularity, we're hearing the refrain of a silver bullet for coupling again. Asynchronous communication is being held up as an example of an integration style that does "loose coupling" properly. There are in fact, some aspects of an Eventful style that reduce software coupling. But, if you're building an Eventful system it's important that you understand what aspects of loose coupling you get for free and which ones you'll need to work hard to get.
+
+### The Loosely Coupled Eventful System
+
+////
+Event-based architectures and asynchrounous APIs are often touted as being "loosely coupled". That's true to an extent, but be careful - it may not be de-coupled in a way that is useful to your needs. As we described earlier, de-coupling software components helps us reduce the amount of effort we need to spend on writing 
+and maintianing code. So, does a decoupled asynchronous API help us do that?
+////
 
 As we described in chapter [x], an asynchronous API has some unique interaction characteristics. Instead of a request-reply model, asynchronous APIs often use a publish-subsribe model, in which multiple subscribers consume asynchronous event messages. We also described the important role of infrastructure and how it further seperates the event publisher from the consumer.
 
