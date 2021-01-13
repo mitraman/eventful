@@ -120,7 +120,7 @@ Below is an example of an ECS-style message. This one comes from Amazon'e AWS pl
 The ECS message pattern has some important implications for data storage services. First, when you are using ECS messages broadcast to multiple sources -- and each of those sources will be storing some or all the data in the message -- you introduce the possibility of inconsistency in data storage. This happens when Storage System A (SSA) processes and stores the information for the ECS message before Storage System B (SSB). When someone reads from SSA they may not get the same results as when they read from SSB. This inconsistency may only last for a few milliseconds but, in a high-traffic system that sends out thousands of ECS messages, the likelihood of an inconsisten read increases rapidly.
 
 {aside}
-# Eventual Consistency
+### Eventual Consistency
 
 The challenge of synchronizing data storage at multiple locations is common in all EVENTful systems and is called the **Eventual Consistency**[ch02-eventual] problem. Most storage systems built for EVENTful use have conflict and consistency algorithms built into the platform so you rarely need to do anything special when you build your EVENTful data store. However, it is important to be aware of it and learn how to hangle cases where consistency may cause a problem (TK -- ronnie, will you deal with this in the data section below?)
 {/aside}
