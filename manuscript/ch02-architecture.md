@@ -122,7 +122,7 @@ The ECS message pattern has some important implications for data storage service
 {aside}
 ### Eventual Consistency
 
-The challenge of synchronizing data storage at multiple locations is common in all EVENTful systems and is called the **Eventual Consistency**[ch02-eventual] problem. Most storage systems built for EVENTful use have conflict and consistency algorithms built into the platform so you rarely need to do anything special when you build your EVENTful data store. However, it is important to be aware of it and learn how to hangle cases where consistency may cause a problem (TK -- ronnie, will you deal with this in the data section below?)
+The challenge of synchronizing data storage at multiple locations is common in all EVENTful systems and is called the **Eventual Consistency**[^ch02-eventual] problem. Most storage systems built for EVENTful use have conflict and consistency algorithms built into the platform so you rarely need to do anything special when you build your EVENTful data store. However, it is important to be aware of it and learn how to hangle cases where consistency may cause a problem (TK -- ronnie, will you deal with this in the data section below?)
 {/aside}
 
 [^ch02-eventual]: <https://en.wikipedia.org/wiki/Eventual_consistency>
