@@ -68,10 +68,23 @@ EN messages are usually quite small, too. They typically have just as few fields
 
 Event notifications are helpful when you want to publish brief "alerts" about what is going on in a component or service. They are usually one-way messsges that don't require a reply and can be easy to add to an existing RESTful system.
 
-The downside of the EN pattern is that they usually don't carry enough information to allow a receiver to get the full picture of waht happened. For that, you need to actually carry additional data in the message. For that you need to level-up in your EVENTful patterns and employ the Event-Carried State or ECS pattern.
+The downside of the EN pattern is that they usually don't carry enough information to allow a receiver to get the full picture of what happened. For that, you need to actually carry additional data in the message. For that you need to level-up in your EVENTful patterns and employ the Event-Carried State or ECS pattern.
 
 ### Event-Carried State (ECS)
-A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object…”). 
+A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object ...”). with ECS-style messages, the message is more than just a notification. The message actually contains details about what was added or changed for a particular object or resource. 
+
+One of the key advantages of the ECS approach is that, by carrying details of the data that was added/dhanges, it can reduce traffic on the network. This is different than using the EN approach (see above). Of course, by adding more information in the message, you also increase the size of messages and run the risk of carrying around data that few recipients really want or need.
+
+The ECS message pattern has some key implications for data storage services. In systems that rely on a single source of truth or system of record (SOR) data storage pattern, the ECS record needs to have all the possibly relevant data in order to ensure the data storage is kept up-to-date. This might mean carrying the same data in subsequent update messages even if that data hasn't changed.
+
+<!-- 
+TK add code example here 
+-->
+
+{caption: "A typical event carried state message"}
+```javascript
+
+```
 
 **TK more goes here...**
 
@@ -83,6 +96,8 @@ The pattern most people associated with EVENTful design today is sometimes calle
 
 ### CQRS
 There are other EVENTful approaches like web hooks, publish-subscribe, and command-query responsibility separation (CQRS). The most common element in all these patterns is the reliance on asynchronous interactions — the decoupling of the requests and responses — that leads to another common expression: Eventual consistency. 
+
+**TK Bertrand Meyer Command-Query Separation (https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) **
 
 **TK clean up, expand, (re)move eventual consistency stuff**
 
