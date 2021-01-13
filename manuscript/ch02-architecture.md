@@ -183,5 +183,7 @@ TK
 
 ## Additional Reading
  * If you want to dig deeper into the world of Webhooks, we recommend you check out "Webhooks -- The Definitive Guide" at <https://requestbin.com/blog/working-with-webhooks/>.
+ * The book "Software Architect's Handbook" by Joseph Ingeno has a nice section on the various EVENtful message patterns. You can find it here: <https://learning.oreilly.com/library/view/software-architects-handbook/9781788624060/>
+ 
 
 
