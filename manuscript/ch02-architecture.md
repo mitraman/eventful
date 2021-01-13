@@ -73,7 +73,7 @@ The downside of the EN pattern is that they usually don't carry enough informati
 ### Event-Carried State (ECS)
 A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object ...”). with ECS-style messages, the message is more than just a notification. The message actually contains details about what was added or changed for a particular object or resource. 
 
-One of the key advantages of the ECS approach is that, by carrying details of the data that was added/dhanges, it can reduce traffic on the network. This is different than using the EN approach (see above). Of course, by adding more information in the message, you also increase the size of messages and run the risk of carrying around data that few recipients really want or need.
+One of the key advantages of the ECS approach is that, by carrying details of the data that was added/changed, it can reduce traffic on the network. This is different than using the EN approach (see above). Of course, by adding more information in the message, you also increase the size of messages and run the risk of carrying around data that few recipients really want or need.
 
 Below is an example of an ECS-style message. This one comes from Amazon'e AWS platform.
 
@@ -117,11 +117,7 @@ Below is an example of an ECS-style message. This one comes from Amazon'e AWS pl
 
 The ECS message pattern has some imporant implications for data storage services. In systems that rely on a single source of truth or system of record (SOR) data storage pattern, the ECS record needs to have all the possibly relevant data in order to ensure the data storage is kept up-to-date. This might mean carrying the same data in subsequent update messages even if that data hasn't changed. Including this "unchanged data" can be important when the data storage system needs to validate the integrity of the information before saving and processing it for future use.
 
-
-
-
-**TK more goes here...**
-
+If you  want to continue to support data-writing in your EVENTful implementations and you also want to reduce the size of message payloads, you'd be better off using another style of EVENTful messaging: Event Streaming.
 
 ### Event Streaming/Sourcing (ES)
 The pattern most people associated with EVENTful design today is sometimes called event sourcing or event streaming (ES). In the ES world, every event is expressed as a transaction that is shipped to anyone interested and is also recorded in a kind of “ledger” that holds all the event transactions. In the case of the user information we’ve been discussing, there would be a transaction that indicates the change of the data in each of the user record fields. This might actually be expressed as multiple transactions. One of the unique aspects of ES is that most all transactions that change state can be “reversed” with another transaction. This is often equated with basic accounting ledgers where debits can cancel out credits in the ledger.
