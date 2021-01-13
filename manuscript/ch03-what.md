@@ -17,6 +17,40 @@ An eventful system isn't the answer to every software integration problem that y
 
 There are three factors that are the most important to consider for an eventful system: coupling, distance and latency. We'll explore each of these factors and how they impact eventful architectures.
 
+TK need segue into this new section
+
+## Dissecting the Eventful System
+
+In Chapter 2, we explored a number of different Eventful architecture styles and patterns. As we saw, there are lots of different ways of implementing an Eventful, asynchronous messaging system. That complexity can make it difficult for us to come up with a good, overarching way of designing them. The good news is that there are some fundamental parts of an Eventful system that are consistent across all those variations. If we can understand those parts, we'll be able to use them to explore the factors of coupling, distance and latency universally.
+
+{blurb}
+The parts of the system that we'll be describing here actually apply to RESTful and synchronous interactions as well. We'll compare the Eventful version and synchronous version of each of them throughout this chapter.
+{blurb}
+
+There are four universal parts of an Eventful system that are most important to consider: producers, consumers, the network and the message. Let's take a look at each of them in turn.
+
+### Producers and Consumers
+
+TK intro the concept of message producers and message consumers. 
+
+Tk The REST/sync version
+
+TK The async version and significance of this difference
+
+### The Network 
+
+TK intro the network - should be the same as synch, but may need support for special async char. (e.g. UDP)
+
+### The Infrastructure
+
+TK Messaging infra. compare and contrast sync and async
+TK highlight how important this is for an async interaction
+
+### The Message
+
+TK the message. 
+
+Tk segue into the three factors of coupling, distance and time.
 
 ## Coupling
 
@@ -38,12 +72,19 @@ As the event-driven, asynchronous style of integration gains popularity, we're h
 
 ### The Loosely Coupled Eventful System
 
+In an API interaction, coupling is natural and unavoidable. When one component is providing a service or producing an output, other components will naturally form a _dependency_ on it. But, the goal for most software designers is to reduce that dependency so that the components are _loosely coupled_. That means that a change to one of the components that provides a service or produces data should have as small an impact as possible on the other dependent components.
+
+As we discussed in chapter [X] (Tk - callback to Mike's chapter on differint styles/patterns), Eventful architectures can take a number of different forms. We also learned that unlike synchronous interactions, Eventful communication goes in a single direction. 
+
+is an issue when a change in 
+
 ////
 Event-based architectures and asynchrounous APIs are often touted as being "loosely coupled". That's true to an extent, but be careful - it may not be de-coupled in a way that is useful to your needs. As we described earlier, de-coupling software components helps us reduce the amount of effort we need to spend on writing 
 and maintianing code. So, does a decoupled asynchronous API help us do that?
 ////
 
-As we described in chapter [x], an asynchronous API has some unique interaction characteristics. Instead of a request-reply model, asynchronous APIs often use a publish-subsribe model, in which multiple subscribers consume asynchronous event messages. We also described the important role of infrastructure and how it further seperates the event publisher from the consumer.
+(TK - this should back reference thee eventful API styles that Mike is writing)
+As we described in chapter [x], an asynchronous API has some unique interaction characteristics. Instead of a request-reply model, asynchronous APIs often use a publish-subscribe model, in which multiple subscribers consume asynchronous event messages. We also described the important role of infrastructure and how it further separates the event publisher from the consumer.
 
 It's this separation of the event message publisher from the event message consumer that people often focus on. By implementing components that can publish event messages to an eventing infrastructure, we can "de-couple" the event publisher form the consumer. The developers who write the event publishing component don't need to coordinate with event consumers in order for their messages to be picked up and received. They only need to know how to send event messages into the infrastructure - the rest is up to someone else to figure out.
 
