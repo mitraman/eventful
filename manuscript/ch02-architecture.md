@@ -75,16 +75,50 @@ A similar pattern is event-carried state or ECS. In this approach, the actual re
 
 One of the key advantages of the ECS approach is that, by carrying details of the data that was added/dhanges, it can reduce traffic on the network. This is different than using the EN approach (see above). Of course, by adding more information in the message, you also increase the size of messages and run the risk of carrying around data that few recipients really want or need.
 
-The ECS message pattern has some key implications for data storage services. In systems that rely on a single source of truth or system of record (SOR) data storage pattern, the ECS record needs to have all the possibly relevant data in order to ensure the data storage is kept up-to-date. This might mean carrying the same data in subsequent update messages even if that data hasn't changed.
-
-<!-- 
-TK add code example here 
--->
+Below is an example of an ECS-style message. This one comes from Amazon'e AWS platform.
 
 {caption: "A typical event carried state message"}
 ```javascript
-
+{
+  "id": "6f87d04b-9f74-4f04-a780-7acf4b0a9b38",
+  "detail-type": "AWS Console Sign In via CloudTrail",
+  "source": "aws.signin",
+  "account": "123456789012",
+  "time": "2016-01-05T18:21:27Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": { 
+      "eventVersion": "1.02",
+      "userIdentity": {
+            "type": "Root",
+            "principalId": "123456789012",
+            "arn": "arn:aws:iam::123456789012:root",
+            "accountId": "123456789012"
+            },
+      "eventTime": "2016-01-05T18:21:27Z",
+      "eventSource": "signin.amazonaws.com",
+      "eventName": "ConsoleLogin",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "0.0.0.0",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36",
+      "requestParameters": null,
+      "responseElements": {
+            "ConsoleLogin": "Success"
+            },
+      "additionalEventData": {
+            "LoginTo": "https://console.aws.amazon.com/console/home?state=hashArgs%23&isauthcode=true",
+            "MobileVersion": "No",
+            "MFAUsed": "No" },
+      "eventID": "324731c0-64b3-4421-b552-dfc3c27df4f6",
+      "eventType": "AwsConsoleSignIn"
+      }
+}
 ```
+
+The ECS message pattern has some imporant implications for data storage services. In systems that rely on a single source of truth or system of record (SOR) data storage pattern, the ECS record needs to have all the possibly relevant data in order to ensure the data storage is kept up-to-date. This might mean carrying the same data in subsequent update messages even if that data hasn't changed. Including this "unchanged data" can be important when the data storage system needs to validate the integrity of the information before saving and processing it for future use.
+
+
+
 
 **TK more goes here...**
 
