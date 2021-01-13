@@ -25,7 +25,7 @@ In Chapter 2, we explored a number of different Eventful architecture styles and
 
 {blurb}
 The parts of the system that we'll be describing here actually apply to RESTful and synchronous interactions as well. We'll compare the Eventful version and synchronous version of each of them throughout this chapter.
-{blurb}
+{/blurb}
 
 There are four universal parts of an Eventful system that are most important to consider: producers, consumers, the network and the message. Let's take a look at each of them in turn.
 
