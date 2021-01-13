@@ -75,7 +75,7 @@ A similar pattern is event-carried state or ECS. In this approach, the actual re
 
 One of the key advantages of the ECS approach is that, by carrying details of the data that was added/changed, it can reduce traffic on the network. This is different than using the EN approach (see above). Of course, by adding more information in the message, you also increase the size of messages and run the risk of carrying around data that few recipients really want or need.
 
-Below is an example of an ECS-style message. This one comes from Amazon'e AWS platform.
+Below is an example of an ECS-style message. This one comes from Amazon'e AWS platform [^ch02-macie].
 
 {caption: "A typical event carried state message"}
 ```javascript
@@ -115,7 +115,19 @@ Below is an example of an ECS-style message. This one comes from Amazon'e AWS pl
 }
 ```
 
-The ECS message pattern has some imporant implications for data storage services. In systems that rely on a single source of truth or system of record (SOR) data storage pattern, the ECS record needs to have all the possibly relevant data in order to ensure the data storage is kept up-to-date. This might mean carrying the same data in subsequent update messages even if that data hasn't changed. Including this "unchanged data" can be important when the data storage system needs to validate the integrity of the information before saving and processing it for future use.
+[ch02-macie]: <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#macie_event_type>
+
+The ECS message pattern has some important implications for data storage services. First, when you are using ECS messages broadcast to multiple sources -- and each of those sources will be storing some or all the data in the message -- you introduce the possibility of inconsistency in data storage. This happens when Storage System A (SSA) processes and stores the information for the ECS message before Storage System B (SSB). When someone reads from SSA they may not get the same results as when they read from SSB. This inconsistency may only last for a few milliseconds but, in a high-traffic system that sends out thousands of ECS messages, the likelihood of an inconsisten read increases rapidly.
+
+{aside}
+# Eventual Consistency
+
+The challenge of synchronizing data storage at multiple locations is common in all EVENTful systems and is called the **Eventual Consistency**[ch02-eventual] problem. Most storage systems built for EVENTful use have conflict and consistency algorithms built into the platform so you rarely need to do anything special when you build your EVENTful data store. However, it is important to be aware of it and learn how to hangle cases where consistency may cause a problem (TK -- ronnie, will you deal with this in the data section below?)
+{/aside}
+
+[^ch02-eventual]: <https://en.wikipedia.org/wiki/Eventual_consistency>
+
+Second, in systems that rely on a single source of truth or system of record (SOR) data storage pattern, the ECS record needs to have all the possibly relevant data in order to ensure the data storage is kept up-to-date. This might mean carrying the same data in subsequent update messages even if that data hasn't changed. Including this "unchanged data" can be important when the data storage system needs to validate the integrity of the information before saving and processing it for future use.
 
 If you  want to continue to support data-writing in your EVENTful implementations and you also want to reduce the size of message payloads, you'd be better off using another style of EVENTful messaging: Event Streaming.
 
