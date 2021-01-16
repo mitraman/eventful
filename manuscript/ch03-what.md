@@ -29,15 +29,25 @@ The parts of the system that we'll be describing here actually apply to RESTful 
 
 There are four universal parts of an Eventful system that are most important to consider: producers, consumers, the network and the message. Let's take a look at each of them in turn.
 
-### Producers and Consumers
-
-TK intro the concept of message producers and message consumers. 
-
-Tk The REST/sync version
-
-TK The async version and significance of this difference
-
 ### The Network 
+
+A key characteristic for the kinds APIs we're talking about in this book is that they use a network to communicate. That probably feels obvious. But, its an important distinction for us to understand. We need to acknowledge that the network exists and that it has an impact on the way we are designing our software. With the modern tooling, systems and layers of abstrasction that we have today, its easy to forget that the network is there. 
+
+A classic example of the importance of networks for API design are the [fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing):
+1. The network is reliable
+2. Latency is zero
+3. Bandwidth is infinite
+4. The network is secure
+5. Topology doesn't change
+6. There is one administrator
+7. Transport cost is zero
+8. The network is homogenous
+
+{aside}
+These fallacies have evolved and extended by different authors over the years. But, Peter Deutsch is usually credited as the primary author.
+{/aside}
+
+These fallacies list the things that many of us assume to be true, but actually aren't. TK list some examples.
 
 TK intro the network - should be the same as synch, but may need support for special async char. (e.g. UDP)
 
@@ -51,6 +61,15 @@ TK highlight how important this is for an async interaction
 TK the message. 
 
 Tk segue into the three factors of coupling, distance and time.
+
+### Producers and Consumers
+
+TK intro the concept of message producers and message consumers. 
+
+Tk The REST/sync version
+
+TK The async version and significance of this difference
+
 
 ## Coupling
 
