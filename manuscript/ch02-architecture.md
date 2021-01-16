@@ -43,6 +43,15 @@ Both pub-sub and webhooks are examples of early reactive, asynchronous patterns 
 ### Event Notification (EN)
 The simplest EVENTful pattern is **event notification**. Martin Fowler describes EN as something that happens "when a system sends event messages to notify other systems of a change in its domain."[^ch02-fowler]. This is essentially like getting a “ping” when something happens (e.g. “a user updated their account”). 
 
+<!--
+optimizing design to be useful for consumers 
+-->
+
+{tip}
+The Event Notification (EN) approach uses short, descriptive messages optimized for use by the message consumer.
+{/tip}
+
+
 An important aspect of the EN pattern is that it is primarily a "one-way" messaging system. Messages get sent to subscribers when something happens and the sender does not expect any reply from message receivers.  This one-way approach makes EN a good de-coupled pattern that is relatively easy to implement in existing systems.
 
 EN messages are usually quite small, too. They typically have just as few fields to identify the event title, it's name (or tag), some data items related to the event such as date/time or a link to , and possibly a link that the receiver can follow if more info is needed. Below is an example of a typical EN message. This one comes from Google's Firebase platform [^ch02-firebase]:
@@ -72,6 +81,14 @@ The downside of the EN pattern is that they usually don't carry enough informati
 
 ### Event-Carried State (ECS)
 A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object ...”). with ECS-style messages, the message is more than just a notification. The message actually contains details about what was added or changed for a particular object or resource. 
+
+<!-- 
+optimizing for accuracy (object) comprehensivness)
+-->
+
+{tip}
+The Event Carried State (ECS) approach uses complete, self-describing messages to optimize for data integrity and accuracy. 
+{/tip}
 
 One of the key advantages of the ECS approach is that, by carrying details of the data that was added/changed, it can reduce traffic on the network. This is different than using the EN approach (see above). Of course, by adding more information in the message, you also increase the size of messages and run the risk of carrying around data that few recipients really want or need.
 
@@ -115,9 +132,9 @@ Below is an example of an ECS-style message. This one comes from Amazon'e AWS pl
 }
 ```
 
-[ch02-macie]: <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#macie_event_type>
+[^ch02-macie]: <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#macie_event_type>
 
-The ECS message pattern has some important implications for data storage services. First, when you are using ECS messages broadcast to multiple sources -- and each of those sources will be storing some or all the data in the message -- you introduce the possibility of inconsistency in data storage. This happens when Storage System A (SSA) processes and stores the information for the ECS message before Storage System B (SSB). When someone reads from SSA they may not get the same results as when they read from SSB. This inconsistency may only last for a few milliseconds but, in a high-traffic system that sends out thousands of ECS messages, the likelihood of an inconsisten read increases rapidly.
+The ECS message pattern has some important implications for data storage services. First, when you are using ECS messages broadcast to multiple sources -- and each of those sources will be storing some or all the data in the message -- you introduce the possibility of inconsistency in data storage. This happens when Storage System A (SSA) processes and stores the information for the ECS message before Storage System B (SSB). When someone reads from SSA they may not get the same results as when they read from SSB. This inconsistency may only last for a few milliseconds but, in a high-traffic system that sends out thousands of ECS messages, the likelihood of an inconsistent read increases rapidly.
 
 {aside}
 ### Eventual Consistency
@@ -127,7 +144,16 @@ The challenge of synchronizing data storage at multiple locations is common in a
 
 [^ch02-eventual]: <https://en.wikipedia.org/wiki/Eventual_consistency>
 
+
 Second, in systems that rely on a single source of truth or system of record (SOR) data storage pattern, the ECS record needs to have all the possibly relevant data in order to ensure the data storage is kept up-to-date. This might mean carrying the same data in subsequent update messages even if that data hasn't changed. Including this "unchanged data" can be important when the data storage system needs to validate the integrity of the information before saving and processing it for future use.
+
+<!--
+optimizing for smallest (transport, time) change
+-->
+
+{tip}
+The Event Streaming (ES) pattern uses small, discreet messages designed to carry just the information that changed in order to optimize for near-realtime updates of the targeted data stores.
+{/tip}
 
 If you  want to continue to support data-writing in your EVENTful implementations and you also want to reduce the size of message payloads, you'd be better off using another style of EVENTful messaging: Event Streaming.
 
