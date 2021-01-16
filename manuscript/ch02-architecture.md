@@ -47,9 +47,9 @@ The simplest EVENTful pattern is **event notification**. Martin Fowler describes
 optimizing design to be useful for consumers 
 -->
 
-{tip}
+{blurb class: tip}
 The Event Notification (EN) approach uses short, descriptive messages optimized for use by the message consumer.
-{/tip}
+{/blurb}
 
 
 An important aspect of the EN pattern is that it is primarily a "one-way" messaging system. Messages get sent to subscribers when something happens and the sender does not expect any reply from message receivers.  This one-way approach makes EN a good de-coupled pattern that is relatively easy to implement in existing systems.
@@ -86,9 +86,9 @@ A similar pattern is event-carried state or ECS. In this approach, the actual re
 optimizing for accuracy (object) comprehensivness)
 -->
 
-{tip}
+{blurb class: tip}
 The Event Carried State (ECS) approach uses complete, self-describing messages to optimize for data integrity and accuracy. 
-{/tip}
+{/blurb}
 
 One of the key advantages of the ECS approach is that, by carrying details of the data that was added/changed, it can reduce traffic on the network. This is different than using the EN approach (see above). Of course, by adding more information in the message, you also increase the size of messages and run the risk of carrying around data that few recipients really want or need.
 
@@ -151,9 +151,9 @@ Second, in systems that rely on a single source of truth or system of record (SO
 optimizing for smallest (transport, time) change
 -->
 
-{tip}
+{blurb class: tip}
 The Event Streaming (ES) pattern uses small, discreet messages designed to carry just the information that changed in order to optimize for near-realtime updates of the targeted data stores.
-{/tip}
+{/blurb}
 
 If you  want to continue to support data-writing in your EVENTful implementations and you also want to reduce the size of message payloads, you'd be better off using another style of EVENTful messaging: Event Streaming.
 
