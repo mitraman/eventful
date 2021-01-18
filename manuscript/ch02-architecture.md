@@ -29,6 +29,9 @@ B> Technically, CQRS is not an event-based pattern but it is very often used in 
 
 ### Web Hooks and Pub-Sub 
 Before diving into the three classic event-driven patterns of EN, ECS, and ES, there are two patterns that have been around for decades worth mentioning: 1) webhooks [^ch02-hooks] and 2) publish-subscribe [^ch02-pubsub]. *Webhooks* have been around since 2007. It was Jeff Lindsey who is credited with first using the term in his blog post "Web hooks to revolutionize the web" [^ch02-lindsey] where he writes: "Web hooks are essentially user defined callbacks made with HTTP POST." 
+
+T> Web Hooks offer a quick way to use existing RESTful infrastructure to publish near real-time alerts to preconfigured subscribers. 
+
    
 [^ch02-hooks]: <https://en.wikipedia.org/wiki/Webhook>
 [^ch02-pubsub]: <https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern>
@@ -47,9 +50,7 @@ The simplest EVENTful pattern is **event notification**. Martin Fowler describes
 optimizing design to be useful for consumers 
 -->
 
-
 T> The Event Notification (EN) approach uses short, descriptive messages optimized for use by the message consumer.
-
 
 An important aspect of the EN pattern is that it is primarily a "one-way" messaging system. Messages get sent to subscribers when something happens and the sender does not expect any reply from message receivers.  This one-way approach makes EN a good de-coupled pattern that is relatively easy to implement in existing systems.
 
@@ -71,6 +72,7 @@ EN messages are usually quite small, too. They typically have just as few fields
   }
 }
 ```
+
 [^ch02-fowler]: <https://www.martinfowler.com/articles/201701-event-driven.html>
 [^ch02-firebase]: <https://firebase.google.com/docs/cloud-messaging/concept-options>
 
@@ -79,7 +81,7 @@ Event notifications are helpful when you want to publish brief "alerts" about wh
 The downside of the EN pattern is that they usually don't carry enough information to allow a receiver to get the full picture of what happened. For that, you need to actually carry additional data in the message. For that you need to level-up in your EVENTful patterns and employ the Event-Carried State or ECS pattern.
 
 ### Event-Carried State (ECS)
-A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object ...”). with ECS-style messages, the message is more than just a notification. The message actually contains details about what was added or changed for a particular object or resource. 
+A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object ...”). with ECS messages, the message is more than just a notification. The message actually contains details about what was added or changed for a particular object or resource. 
 
 <!-- 
 optimizing for accuracy (object) comprehensivness)
@@ -89,7 +91,7 @@ T> The Event Carried State (ECS) approach uses complete, self-describing message
 
 One of the key advantages of the ECS approach is that, by carrying details of the data that was added/changed, it can reduce traffic on the network. This is different than using the EN approach (see above). Of course, by adding more information in the message, you also increase the size of messages and run the risk of carrying around data that few recipients really want or need.
 
-Below is an example of an ECS-style message. This one comes from Amazon'e AWS platform [^ch02-macie].
+Below is an example of an ECS message. This one comes from Amazon'e AWS platform [^ch02-macie].
 
 {caption: "A typical event carried state message"}
 ```javascript
@@ -141,7 +143,6 @@ The challenge of synchronizing data storage at multiple locations is common in a
 
 [^ch02-eventual]: <https://en.wikipedia.org/wiki/Eventual_consistency>
 
-
 Second, in systems that rely on a single source of truth or system of record (SOR) data storage pattern, the ECS record needs to have all the possibly relevant data in order to ensure the data storage is kept up-to-date. This might mean carrying the same data in subsequent update messages even if that data hasn't changed. Including this "unchanged data" can be important when the data storage system needs to validate the integrity of the information before saving and processing it for future use.
 
 <!--
@@ -150,7 +151,7 @@ optimizing for smallest (transport, time) change
 
 T> The Event Streaming (ES) pattern uses small, discreet messages designed to carry just the information that changed in order to optimize for near-realtime updates of the targeted data stores.
 
-If you  want to continue to support data-writing in your EVENTful implementations and you also want to reduce the size of message payloads, you'd be better off using another style of EVENTful messaging: Event Streaming.
+If you  want to continue to support data-writing in your EVENTful implementations and you also want to reduce the size of message payloads, you'd be better off using another pattern of EVENTful messaging: Event Streaming.
 
 ### Event Streaming/Sourcing (ES)
 The pattern most people associated with EVENTful design today is sometimes called event sourcing or event streaming (ES). In the ES world, every event is expressed as a transaction that is shipped to anyone interested and is also recorded in a kind of “ledger” that holds all the event transactions. In the case of the user information we’ve been discussing, there would be a transaction that indicates the change of the data in each of the user record fields. This might actually be expressed as multiple transactions. One of the unique aspects of ES is that most all transactions that change state can be “reversed” with another transaction. This is often equated with basic accounting ledgers where debits can cancel out credits in the ledger.
