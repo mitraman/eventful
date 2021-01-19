@@ -27,6 +27,7 @@ There are many patterns that fall under the EVENTful umbrella. In the sections t
 {class: discussion}
 B> Technically, CQRS is not an event-based pattern but it is very often used in the same place as other EVENTful patterns and can be a very handy way to manage the transition from a RESTful to an EVENTful architecture model. 
 
+ 
 ### Web Hooks and Pub-Sub 
 Before diving into the three classic event-driven patterns of EN, ECS, and ES, there are two patterns that have been around for decades worth mentioning: 1) webhooks [^ch02-hooks] and 2) publish-subscribe [^ch02-pubsub]. *Webhooks* have been around since 2007. It was Jeff Lindsey who is credited with first using the term in his blog post "Web hooks to revolutionize the web" [^ch02-lindsey] where he writes: "Web hooks are essentially user defined callbacks made with HTTP POST." 
 
@@ -165,7 +166,16 @@ There are other EVENTful approaches like web hooks, publish-subscribe, and comma
 
 **TK clean up, expand, (re)move eventual consistency stuff**
 
-Now that we have a handle on the common message patterns for EVENTful systems, the next challenge is to outline the basic platform elements -- the infrastructure needed in order to implement and operate your EVENTful systems. 
+### Messages vs. Resources
+Throughout this review of what it is that makes up EVENTful architecture you'll find a common theme: *messages*. One of the key elements of EVENTful architecture is the design, transport, and handling of the messages passed from producers to consumers. While RESTful architecture focuses a great deal on addressable *rsources* in order to power the system, EVENTful architecture places a great deal of emphsis on the messages themselves. 
+
+This focus messages changes to leverage in the architecture. In EVENTful systems, addressable locations are *message brokers* and these brokers are known to producers and consumers. The brokers themsevles are really just 'switchboards' for recieving and delivering opaque messages as needed. That makes is relatively easy to change brokers without adversely affecting producers and consumers. That is in contrast to RESTful systems where changing the address of resources in the system can break an existing service or application.
+
+At the same time, EVENTful systems depend a great deal on the ability of consumers to understand the messages reeived from brokers. Changing the shape and/or content of an EVENTful message runs the risk of breaking the services that depend upon the message consumers. When you consider that EVENTful solutions might continue to run for months or possibly years, managing the messages formats becomes very important for the long term health and stability of your EVENTful systems. 
+
+This is one of the reasons that we focus on messages as an essential part of yuour EVENTful implementaton.
+ 
+Now that we have a handle on the common message patterns for EVENTful systems and their importance in EVENTful systems, the next challenge is to outline the basic platform elements -- the infrastructure needed in order to implement and operate your EVENTful systems. 
 
 ## EVENTful Infrastructure  
 TK
