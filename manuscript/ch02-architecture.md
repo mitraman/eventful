@@ -26,13 +26,13 @@ There are many patterns that fall under the EVENTful umbrella. In the sections t
 
 {class: discussion}
 B> Technically, CQRS is not an event-based pattern but it is very often used in the same place as other EVENTful patterns and can be a very handy way to manage the transition from a RESTful to an EVENTful architecture model. 
-
  
 ### Web Hooks and Pub-Sub 
 Before diving into the three classic event-driven patterns of EN, ECS, and ES, there are two patterns that have been around for decades worth mentioning: 1) webhooks [^ch02-hooks] and 2) publish-subscribe [^ch02-pubsub]. *Webhooks* have been around since 2007. It was Jeff Lindsey who is credited with first using the term in his blog post "Web hooks to revolutionize the web" [^ch02-lindsey] where he writes: "Web hooks are essentially user defined callbacks made with HTTP POST." 
 
-T> Web Hooks offer a quick way to use existing RESTful infrastructure to publish near real-time alerts to preconfigured subscribers. 
-
+{blurb, class: tip}
+Web Hooks offer a quick way to use existing RESTful infrastructure to publish near real-time alerts to preconfigured subscribers. 
+{/blurb}
    
 [^ch02-hooks]: <https://en.wikipedia.org/wiki/Webhook>
 [^ch02-pubsub]: <https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern>
@@ -51,7 +51,9 @@ The simplest EVENTful pattern is **event notification**. Martin Fowler describes
 optimizing design to be useful for consumers 
 -->
 
-T> The Event Notification (EN) approach uses short, descriptive messages optimized for use by the message consumer.
+{blurb, class: tip}
+The Event Notification (EN) approach uses short, descriptive messages optimized for use by the message consumer.
+{/blurb}
 
 An important aspect of the EN pattern is that it is primarily a "one-way" messaging system. Messages get sent to subscribers when something happens and the sender does not expect any reply from message receivers.  This one-way approach makes EN a good de-coupled pattern that is relatively easy to implement in existing systems.
 
@@ -88,7 +90,9 @@ A similar pattern is event-carried state or ECS. In this approach, the actual re
 optimizing for accuracy (object) comprehensivness)
 -->
 
-T> The Event Carried State (ECS) approach uses complete, self-describing messages to optimize for data integrity and accuracy. 
+{blurb, class: tip}
+The Event Carried State (ECS) approach uses complete, self-describing messages to optimize for data integrity and accuracy. 
+{/blurb}
 
 One of the key advantages of the ECS approach is that, by carrying details of the data that was added/changed, it can reduce traffic on the network. This is different than using the EN approach (see above). Of course, by adding more information in the message, you also increase the size of messages and run the risk of carrying around data that few recipients really want or need.
 
@@ -150,14 +154,15 @@ Second, in systems that rely on a single source of truth or system of record (SO
 optimizing for smallest (transport, time) change
 -->
 
-{blurb, class: tip}
-The Event Streaming (ES) pattern uses small, discreet messages designed to carry just the information that changed in order to optimize for near-realtime updates of the targeted data stores.
-{/blurb}
-
 If you  want to continue to support data-writing in your EVENTful implementations and you also want to reduce the size of message payloads, you'd be better off using another pattern of EVENTful messaging: Event Streaming.
 
 ### Event Streaming/Sourcing (ES)
 The pattern most people associated with EVENTful design today is sometimes called event sourcing or event streaming (ES). In the ES world, every event is expressed as a transaction that is shipped to anyone interested and is also recorded in a kind of “ledger” that holds all the event transactions. In the case of the user information we’ve been discussing, there would be a transaction that indicates the change of the data in each of the user record fields. This might actually be expressed as multiple transactions. One of the unique aspects of ES is that most all transactions that change state can be “reversed” with another transaction. This is often equated with basic accounting ledgers where debits can cancel out credits in the ledger.
+
+{blurb, class: tip}
+The Event Streaming (ES) pattern uses small, discreet messages designed to carry just the information that changed in order to optimize for near-realtime updates of the targeted data stores.
+{/blurb}
+
 
 **TK clean up, expand**
 
