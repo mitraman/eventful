@@ -150,9 +150,9 @@ Second, in systems that rely on a single source of truth or system of record (SO
 optimizing for smallest (transport, time) change
 -->
 
-{aside, class:tip}
+{blurb, class: tip}
 The Event Streaming (ES) pattern uses small, discreet messages designed to carry just the information that changed in order to optimize for near-realtime updates of the targeted data stores.
-{/aside}
+{/blurb}
 
 If you  want to continue to support data-writing in your EVENTful implementations and you also want to reduce the size of message payloads, you'd be better off using another pattern of EVENTful messaging: Event Streaming.
 
