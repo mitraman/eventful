@@ -27,7 +27,7 @@ In Chapter 2, we explored a number of different Eventful architecture styles and
 The parts of the system that we'll be describing here actually apply to RESTful and synchronous interactions as well. We'll compare the Eventful version and synchronous version of each of them throughout this chapter.
 {/blurb}
 
-There are four universal parts of an Eventful system that are most important to consider: producers, consumers, the network and the message. Let's take a look at each of them in turn.
+There are five universal parts of an Eventful system that are most important to consider: producers & consumers, the network, the message, the infrastructure and the people. Let's take a look at each of them in turn.
 
 ### The Network 
 
@@ -47,28 +47,72 @@ A classic example of the importance of networks for API design are the [fallacie
 These fallacies have evolved and extended by different authors over the years. But, Peter Deutsch is usually credited as the primary author.
 {/aside}
 
-These fallacies list the things that many of us assume to be true, but actually aren't. TK list some examples.
+The fallacies listed above highlight the things that we often assume to be true when we design solutions, but actually aren't. For example, consider the software architecture diagram in [fig-1]:
 
-TK intro the network - should be the same as synch, but may need support for special async char. (e.g. UDP)
+TK fig-1: simple box and line arch diagram
 
-### The Infrastructure
+On paper, this architecture paints a picture of a system that is neatly componentised into boxes that can pass event messages to each other. We could implement these components with identical messaging components and build a pretty good system. But, what if we mapped these components to a physical network architecture like [fig-2]?
 
-TK Messaging infra. compare and contrast sync and async
-TK highlight how important this is for an async interaction
+TKf fig-2: box and line arch with network boundaries, some components at a great distance, others in a mobile app.
+
+Suddenly, the realities of the network become apparent. Components that are physically far apart will need to account for latency in their design. Components that are deployed on mobile devices will need to account for a lack of network reliability and constantly changing geographic positions. Overall, the system is comprised of many different networks and sub-networks which each of their own characteristics and security profiles. 
+
+The network has a big impact on how we think about the Eventful design in terms of messaging time and message size. We'll see examples of this when we dive in to the aspects of time and space later in this chapter. When you design an Eventful system it's crucial that you have an idea of how the system will be deployed and realised from a network perspective.
+
+In a RESTful system we almost always use TCP/IP networks and the HTTP application protocol. These are both really well-suited for the synchronous, request-reply context of a RESTful interaction. But, as you start to build EVENTful systems you can start to consider other network options. For example, the UDP network protocol is optimised for broadcasting communications to many components. The MQTT application protocol is optimised for sending lots of small messages between physical devices. The 
+
+{blurb}
+Be careful of confusing the synchronicity of a network or application protocol with the synchronicity of your Eventful system. It's absolutely possible to deploy an event system over HTTP - just as its absolutely possible to deploy a request/reply system on an asynchronous network.
+{/blurb}
+
+The network has a big impact on how components communicate from a transport perspective. Now, let's take a look at that thing we are sending and receiving in the network - the message. 
 
 ### The Message
 
-TK the message. 
+RESTful and Eventful systems have one very important thing in common: they are oriented around message based communication. Messages are units of communication. In the RESTful world, messages are categorised as requests and responses. When we use the HTTP protocol, a message contains a _representation_ of a server's resource. That representation may be an expression of the state of a resource at a certain point of time (e.g. the number of widgets) or a target state of a resource (e.g. a new label for a widget).
 
-Tk segue into the three factors of coupling, distance and time.
+{blurb}
+For more on representations and resources, take a look at.... TK
+{/blurb}
+
+Eventful systems also use messages as a form of communication. But, instead of requests and responses, the messages are *events*. Unlike requests and responses which are meant to be paired, event messages exist on their own as an island. While a request is a solicitation for something to happen (e.g. "what is the current time?") an event just communicates a fact without solicitation (e.g. "at the tone, the time will be 10:35").
+
+In practice, the message turns out to be an incredibly important part of an EVENTful design. Just like in a RESTful system, an event message contains a representation of a time-bound state. Understanding how to create, parse and use these representations is a key element of an EVENTful system design. But, surprinsingly there is very little advice on how to do that in the industry. We'll address the importance of message design later in this chapter when we talk about coupling. Later, in the book we'll cover some design techniques and good practices to help you design better event messages.
+
+With the importance of the message established, lets move on to understanding the components that create and use messages: the producers and consumers.
 
 ### Producers and Consumers
+
+TK - getting a bit stuck here now. In a reuest-reply interaction, a requestor both produces request messages and consumes resopnse messages. But, don't want to make this so cmplicated. Need to think about it a bit more.
+
+In  system there are two types of actors:  producers and message consumers. As you'd expect, message producers create (or produce) messages and message consumers use (or consumer) messages. The distinction between producers and consumers is a useful one because it denotes a dependency relationship. Message consumers will need to parse the messages that producers create. Therefore, there is a dependency on the producers to create messages that consumers will understand.
+
+In a RESTful system, the consumer-provider relationship is fairly easy to understand. Systems that send requests are 
 
 TK intro the concept of message producers and message consumers. 
 
 Tk The REST/sync version
 
 TK The async version and significance of this difference
+
+
+### Messaging Infrastructure
+
+In the technology world, infrastructure serves as a platform to support the software that we need to build. For example, an infrastructure of computers, disk arrays and operating systems allows a team to focus on engineering software that depends on those components. An infrastructure of container registries, Cloud services and container orchestration allows a team to write and ship software as containers. We usually establish an infrastructure platform so that our teams can reduce the scope, effort and focus of their work by taking advantage of a shared set of tools and processes.
+
+There is almost always some form of infrastructure in the message based integration world as well. When we design a system that connects software together, we take advantage of both hardware and software tools and systems to reduce the work we need to do to communicate in a message-based way. For example, in a RESTful system, we'd typically use the HTTP application protocol, the TCP/IP network protocol and a series of ethernet and fibre-optic cables to aid communication. A good example of this kind of model is the OSI model which describes the layers of a network-based communication stack.
+
+But, we often add additional message infrastructure within the "application" layer of the stack to make communication easier, more consistent and safer. For example, in a RESTful system, implementers often incorporate message-based routing, access control, threat protection and message translation as a core infrastructure component. This way, teams can deliver safer, dynamic API-enabled applications without implementing that logic themselves. Instead, they focus on application logic and deploy their applications behind a set of messaging infrastructure components that ensure a minimum set of entry criteria is met before a message consumer can request a response.
+
+When it comes to an EventFUL system, there is often a need for a special set of messaging infrastructure tools. 
+
+
+TK Messaging infra. compare and contrast sync and async
+TK highlight how important this is for an async interaction
+
+### People
+
+Tk highilght that we need to design for people, not just systems. Catalog the types of people.
 
 
 ## Coupling
@@ -166,8 +210,32 @@ TK need to remember what this is.
 
 *(runtime latency, build-time latency, design-time latency?)*
 
-## Something that ties all three factors together?
-TK
+## What does a good Event-System look like?
+
+TK this section ties all the concepts together from a quality perspective. Can be inspred by Fielding's chapter 2 and chapter 3
+
+### Changeabiliilituy
+
+TK - descrive changeability (modifiability, evolveability, extensbility) in therms of concepts in this chapter
+
+### Maintainability
+
+TK - describe maintainability 
+
+### Observability
+
+### Reliability and Scalability
+
+TK - describe reliability and scalability in terms of concepts in this chapter
+
+### Usability
+
+TK - describe usability in terms of concepts in this chapter
+
+### Comparing the Eventful and REStful systems
+
+TK aspirational
+TK maybe transalte fielding's table and do the columns for eventful 
 
 ## Summary
 TK
