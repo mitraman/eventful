@@ -225,8 +225,8 @@ TK
 ## Additional Reading
  * If you want to dig deeper into the world of Webhooks, we recommend you check out "Webhooks -- The Definitive Guide" at <https://requestbin.com/blog/working-with-webhooks/>.
  * The book "Software Architect's Handbook" by Joseph Ingeno has a nice section on the various EVENtful message patterns. You can find it here: <https://learning.oreilly.com/library/view/software-architects-handbook/9781788624060/>
- * Bertrand Meyer's book "Object-Oriented Software Construction" (<https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction>) covers the origins and details of the concept of _Command-Query Separation_.
- * Greg Young published a PDF file entitled "CQRS Documents by Greg Young" (<https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf>). It is there that Young introduces CQRS and Event Sourcing.
+ * Bertrand Meyer's 1988 book "Object-Oriented Software Construction" (<https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction>) covers the origins and details of the concept of _Command-Query Separation_.
+ * Greg Young published a PDF file entitled "CQRS Documents by Greg Young" in 2010 (<https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf>). It is there that Young introduces CQRS and Event Sourcing.
  
 
 
