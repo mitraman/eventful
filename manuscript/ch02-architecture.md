@@ -81,7 +81,7 @@ EN messages are usually quite small, too. They typically have just as few fields
 
 Event notifications are helpful when you want to publish brief "alerts" about what is going on in a component or service. They are usually one-way messsges that don't require a reply and can be easy to add to an existing RESTful system.
 
-The downside of the EN pattern is that they usually don't carry enough information to allow a receiver to get the full picture of what happened. For that, you need to actually carry additional data in the message. For that you need to level-up in your EVENTful patterns and employ the Event-Carried State or ECS pattern.
+The downside of the EN pattern is that the message usually doesn't carry enough information to allow a receiver to get the full picture of what happened. For that, you need to actually carry additional data in the message. For that you need to level-up in your EVENTful patterns and employ the Event-Carried State or ECS pattern.
 
 ### Event-Carried State (ECS)
 A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object ...”). with ECS messages, the message is more than just a notification. The message actually contains details about what was added or changed for a particular object or resource. 
@@ -150,14 +150,14 @@ The challenge of synchronizing data storage at multiple locations is common in a
 
 Second, in systems that rely on a single source of truth or system of record (SOR) data storage pattern, the ECS record needs to have all the possibly relevant data in order to ensure the data storage is kept up-to-date. This might mean carrying the same data in subsequent update messages even if that data hasn't changed. Including this "unchanged data" can be important when the data storage system needs to validate the integrity of the information before saving and processing it for future use.
 
-<!--
-optimizing for smallest (transport, time) change
--->
-
 If you  want to continue to support data-writing in your EVENTful implementations and you also want to reduce the size of message payloads, you'd be better off using another pattern of EVENTful messaging: Event Streaming.
 
 ### Event Streaming/Sourcing (ES)
 The pattern most people associated with EVENTful design today is sometimes called event sourcing or event streaming (ES). In the ES world, every event is expressed as a transaction that is shipped to anyone interested and is also recorded in a kind of “ledger” that holds all the event transactions. In the case of the user information we’ve been discussing, there would be a transaction that indicates the change of the data in each of the user record fields. This might actually be expressed as multiple transactions. One of the unique aspects of ES is that most all transactions that change state can be “reversed” with another transaction. This is often equated with basic accounting ledgers where debits can cancel out credits in the ledger.
+
+<!--
+optimizing for smallest (transport, time) change
+-->
 
 {blurb, class: tip}
 The Event Streaming (ES) pattern uses small, discreet messages designed to carry just the information that changed in order to optimize for near-realtime updates of the targeted data stores.
@@ -169,7 +169,9 @@ The Event Streaming (ES) pattern uses small, discreet messages designed to carry
 ### CQRS
 There are other EVENTful approaches like web hooks, publish-subscribe, and command-query responsibility separation (CQRS). The most common element in all these patterns is the reliance on asynchronous interactions — the decoupling of the requests and responses — that leads to another common expression: Eventual consistency. 
 
-**TK Bertrand Meyer Command-Query Separation (https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) **
+**TK Bertrand Meyer Command-Query Separation (https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) also (https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction) **
+
+**TK Greg Young CQRS naming (https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) CQRS and Event Sourcing
 
 **TK clean up, expand, (re)move eventual consistency stuff**
 
@@ -223,6 +225,8 @@ TK
 ## Additional Reading
  * If you want to dig deeper into the world of Webhooks, we recommend you check out "Webhooks -- The Definitive Guide" at <https://requestbin.com/blog/working-with-webhooks/>.
  * The book "Software Architect's Handbook" by Joseph Ingeno has a nice section on the various EVENtful message patterns. You can find it here: <https://learning.oreilly.com/library/view/software-architects-handbook/9781788624060/>
+ * Bertrand Meyer's book "Object-Oriented Software Construction" (<https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction>) covers the origins and details of the concept of _Command-Query Separation_.
+ * Greg Young published a PDF file entitled "CQRS Documents by Greg Young" (<https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf>). It is there that Young introduces CQRS and Event Sourcing.
  
 
 
