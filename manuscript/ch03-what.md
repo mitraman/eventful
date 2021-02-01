@@ -214,7 +214,9 @@ TK need to remember what this is.
 
 TK this section ties all the concepts together from a quality perspective. Can be inspred by Fielding's chapter 2 and chapter 3
 
-### Changeabiliilituy
+TK (mamund) one thing I really like about Fielding's system properties narrative is that he calls out how his constraints promote the desired properties. wonder if we have the same oppty here? these are the properties. are there constraints we recommend somewhere, too? 
+
+### Changeability
 
 TK - descrive changeability (modifiability, evolveability, extensbility) in therms of concepts in this chapter
 
