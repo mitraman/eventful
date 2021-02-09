@@ -163,7 +163,7 @@ In the ES approach, the primary goal is to design a message model is compact and
 
 
 {caption: "Object-centric event-sourcing customer message"}
-````javascript
+```javascript
 {
   // TK: make this better (mamund)
   "id":"CjYGiSipOE",
@@ -178,14 +178,14 @@ In the ES approach, the primary goal is to design a message model is compact and
   "postalCode":"...",
   "countryCode:"..."
 }
-````
+```
 
 In each of the examples above, you can see the 'shape' of each object. While it is possible to design a "product message" and then design a "customer message" and then a "warehouse" message and so forth, this is not always the most effective way to implement an ES-style system. Instead, it can be better to design a single message that can be used by all parties to carry whatever information they wish.  The results in a more generic message that, while a bit harder to humans_ to read, can be much more useful over time for _machines_ to deal with. 
 
 Below is the same customer information displayed in a more generic event-source style message:
 
 {caption: "Generic event-sourcing customer message"}
-````javascript
+```javascript
 {
   // TK: make this better (mamund)
   "id":"CjYGiSipOE",
@@ -200,7 +200,7 @@ Below is the same customer information displayed in a more generic event-source 
   "postalCode":"...",
   "countryCode:"..."
 }
-````
+```
 Another thing to keep in mind when using the ES-style approach, is that small, flat messages are easier to turn into transactions than larger, deeply-nested messages. In fact, messages that only contain the data that was _changed_ (e.g. the familyName of a customer) are much easier to "reverse" with another transaction if that is ever needed.  This can be an advantage when you have large, complex records that change often.
 
 As you might expoet, there is a downside to this fine-grained approach to tracking data changes. A system that just ships small bits of data around is not optimised for storing data in a way that is easy to query. Typically, ea small transaction needs to be written to a more strongly-typed data model. For example, changing the familyName of a customer may be one small transaction, but that transaction must be shipped to some system of reaord responsible for maintaining customer records and the one record's familyName needs to be written to durable storage (TK durable?).
