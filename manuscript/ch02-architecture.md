@@ -153,21 +153,67 @@ Second, in systems that rely on a single source of truth or system of record (SO
 If you  want to continue to support data-writing in your EVENTful implementations and you also want to reduce the size of message payloads, you'd be better off using another pattern of EVENTful messaging: Event Streaming.
 
 ### Event Streaming/Sourcing (ES)
-The pattern most people associated with EVENTful design today is sometimes called event sourcing or event streaming (ES). In the ES world, every event is expressed as a transaction that is shipped to anyone interested and is also recorded in a kind of “ledger” that holds all the event transactions. In the case of the user information we’ve been discussing, there would be a transaction that indicates the change of the data in each of the user record fields. This might actually be expressed as multiple transactions. One of the unique aspects of ES is that most all transactions that change state can be “reversed” with another transaction. This is often equated with basic accounting ledgers where debits can cancel out credits in the ledger.
-
-<!--
-optimizing for smallest (transport, time) change
--->
+The pattern most people associated with EVENTful design today is sometimes called _event sourcing_ or _event streaming_ (ES). In the ES world, every event is expressed as a transaction that is shipped to anyone interested and is also recorded in a kind of “ledger” that holds all the event transactions. In the case of the user information we’ve been discussing, there would be a transaction that indicates the change of the data in each of the user record fields. This might actually be expressed as multiple transactions. One of the unique aspects of ES is that most all transactions that change state can be “reversed” with another transaction. This is often equated with basic accounting ledgers where debits can cancel out credits in the ledger.
 
 {blurb, class: tip}
 The Event Streaming (ES) pattern uses small, discreet messages designed to carry just the information that changed in order to optimize for near-realtime updates of the targeted data stores.
 {/blurb}
 
+In the ES approach, the primary goal is to design a message model is compact and yet still expressive. Both provider and subscriber applications are coded, or _bound_, to the message design itself. One of the challenges of creating a scalable and stable ES-style system is to carefully design the message(s) that will be sent back and forth within the system. A common tactic is to adopt a pattern where each objet your system ("product", "customer", "warehouse", etc.) becomes a message (see below).
 
-**TK clean up, expand**
+
+{caption: "Object-centric event-sourcing customer message"}
+````javascript
+{
+  // TK: make this better (mamund)
+  "id":"CjYGiSipOE",
+  "created_at":"2019-12-20T11:27:52-05:00",
+  "updated_at":"2019-12-25T18:24:57-05:00",
+  "givenName":"...",
+  "familyName": "...",
+  "email" : "...",
+  "streetAddress1" : "...",
+  "city":"...",
+  "stateProvince":"...",
+  "postalCode":"...",
+  "countryCode:"..."
+}
+````
+
+In each of the examples above, you can see the 'shape' of each object. While it is possible to design a "product message" and then design a "customer message" and then a "warehouse" message and so forth, this is not always the most effective way to implement an ES-style system. Instead, it can be better to design a single message that can be used by all parties to carry whatever information they wish.  The results in a more generic message that, while a bit harder to humans_ to read, can be much more useful over time for _machines_ to deal with. 
+
+Below is the same customer information displayed in a more generic event-source style message:
+
+{caption: "Generic event-sourcing customer message"}
+````javascript
+{
+  // TK: make this better (mamund)
+  "id":"CjYGiSipOE",
+  "created_at":"2019-12-20T11:27:52-05:00",
+  "updated_at":"2019-12-25T18:24:57-05:00",
+  "givenName":"...",
+  "familyName": "...",
+  "email" : "...",
+  "streetAddress1" : "...",
+  "city":"...",
+  "stateProvince":"...",
+  "postalCode":"...",
+  "countryCode:"..."
+}
+````
+Another thing to keep in mind when using the ES-style approach, is that small, flat messages are easier to turn into transactions than larger, deeply-nested messages. In fact, messages that only contain the data that was _changed_ (e.g. the familyName of a customer) are much easier to "reverse" with another transaction if that is ever needed.  This can be an advantage when you have large, complex records that change often.
+
+As you might expoet, there is a downside to this fine-grained approach to tracking data changes. A system that just ships small bits of data around is not optimised for storing data in a way that is easy to query. Typically, ea small transaction needs to be written to a more strongly-typed data model. For example, changing the familyName of a customer may be one small transaction, but that transaction must be shipped to some system of reaord responsible for maintaining customer records and the one record's familyName needs to be written to durable storage (TK durable?).
+
+{blurb, class: warning}
+Optimizing ES-style systems for _writing_ data may mean you have a lot more work to do when you want to permanently _store_ and later _retreive_ that same data. Be sure you implement a system that can meet your SLA for _reading_ data, too!
+{/blurb}
+
+ES-style systems require you to carefully weigh the costs and advantages writing data quickly vs. reading data quickly. One way to tackle this problem is to adopt a hybrid approach to event-driven architecture by implementing a system that clearly separates querying data from writing data. 
 
 ### CQRS
-There are other EVENTful approaches like web hooks, publish-subscribe, and command-query responsibility separation (CQRS). The most common element in all these patterns is the reliance on asynchronous interactions — the decoupling of the requests and responses — that leads to another common expression: Eventual consistency. 
+TK: layout CQRS as a common "middle-way" for those shifting to EVENTful systems.
+
 
 **TK Bertrand Meyer Command-Query Separation (https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) also (https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction) **
 
@@ -228,5 +274,7 @@ TK
  * Bertrand Meyer's 1988 book "Object-Oriented Software Construction" (<https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction>) covers the origins and details of the concept of _Command-Query Separation_.
  * Greg Young published a PDF file entitled "CQRS Documents by Greg Young" in 2010 (<https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf>). It is there that Young introduces CQRS and Event Sourcing.
  
-
+<!--
+ * https://www.confluent.io/blog/put-several-event-types-kafka-topic/
+ -->
 
