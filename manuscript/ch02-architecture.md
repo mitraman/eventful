@@ -161,7 +161,6 @@ The Event Streaming (ES) pattern uses small, discreet messages designed to carry
 
 In the ES approach, the primary goal is to design a message model is compact and yet still expressive. Both provider and subscriber applications are coded, or _bound_, to the message design itself. One of the challenges of creating a scalable and stable ES-style system is to carefully design the message(s) that will be sent back and forth within the system. A common tactic is to adopt a pattern where each objet your system ("product", "customer", "warehouse", etc.) becomes a message (see below).
 
-
 {caption: "Object-centric event-sourcing customer message"}
 ```javascript
 {
@@ -180,7 +179,7 @@ In the ES approach, the primary goal is to design a message model is compact and
 }
 ```
 
-In each of the examples above, you can see the 'shape' of each object. While it is possible to design a "product message" and then design a "customer message" and then a "warehouse" message and so forth, this is not always the most effective way to implement an ES-style system. Instead, it can be better to design a single message that can be used by all parties to carry whatever information they wish.  The results in a more generic message that, while a bit harder to humans_ to read, can be much more useful over time for _machines_ to deal with. 
+In each of the examples above, you can see the 'shape' of each object. While it is possible to design a "product message" and then design a "customer message" and then a "warehouse" message and so forth, this is not always the most effective way to implement an ES-style system. Instead, it can be better to design a single message that can be used by all parties to carry whatever information they wish.  The results in a more generic message that, while a bit harder for _humans_ to read, can be much more useful over time for _machines_ to deal with. 
 
 Below is the same customer information displayed in a more generic event-source style message:
 
@@ -216,14 +215,40 @@ Another approach to introducing EVENTful services into your ecosystem is to use 
 
 [^ch02-young]:<http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/>
 
-In Young's blog post, he acknowledges that his CQRS pattern is rooted in another, older, pattern call "Command-Query 
-Separation" first described by Bertrand Meyer in his 19XX book "Object-Oriented Software Construction" [^ch02-meyer]. In that book, Meyer points out that some functions will modify/add/delete data (commands) and some are just for reading data (queries). It's easy to see how these two patterns are similar.
+In Young's blog post, he acknowledges that his CQRS pattern is rooted in another, older, pattern called "Command-Query Separation" first described by Bertrand Meyer in his 1988 book "Object-Oriented Software Construction" [^ch02-meyer]. There, Meyer points out that some functions in your application will modify/add/delete data (commands) and some functions are just for reading data (queries). It's easy to see how these two patterns are similar.
 
-Stricly speaking, CQRS is not an EVENTful approach by itself -- Young points this out himself. However, by separating data reads from data writes, CQRS offers an excellent model for supporting EVENTful data streams. 
+[^ch02-meyer]:<https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction)>
 
- [^ch02-meyer]:<https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction)>
+Strictly speaking, CQRS is not an EVENTful approach by itself -- Young points this out himself. However, by separating data reads from data writes, CQRS offers an excellent model for supporting EVENTful data streams. One of the key aspects of Young's CQRS is to take what was typically a single programming object - the `CustomerService` object - and divide that into two related objects - the `CustomerWriteService` and `CustomerReadService` objects.
 
-**TK Bertrand Meyer Command-Query Separation (https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) also
+Below is a coding example on this idea from Young's blog post:
+
+{caption: "Example implementation of CQRS:"
+```
+// CustomerService w/o CQRS
+void MakeCustomerPreferred(CustomerId)
+Customer GetCustomer(CustomerId)
+CustomerSet GetCustomersWithName(Name)
+CustomerSet GetPreferredCustomers()
+void ChangeCustomerLocale(CustomerId, NewLocale)
+void CreateCustomer(Customer)
+void EditCustomerDetails(CustomerDetails)
+
+/**************************************************
+Applying CQRS on this would result in two services:
+***************************************************/
+
+// CustomerWriteService
+void MakeCustomerPreferred(CustomerId)
+void ChangeCustomerLocale(CustomerId, NewLocale)
+void CreateCustomer(Customer)
+void EditCustomerDetails(CustomerDetails)
+
+// CustomerReadService
+Customer GetCustomer(CustomerId)
+CustomerSet GetCustomersWithName(Name)
+CustomerSet GetPreferredCustomers()
+```
 
 {blurb, class: tip}
 The CQRS pattern focuses on creating separate processing streams for reading data (the queries) and for writing data (the commands) and, for that reason, works well for organizations that want to continue to leverage their investment in relational data services while adding more EVENTful interactions to their overall architecture.
