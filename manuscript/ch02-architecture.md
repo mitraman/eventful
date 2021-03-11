@@ -220,7 +220,7 @@ In Young's blog post, he acknowledges that his CQRS pattern is rooted in another
 
 [^ch02-meyer]:<https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction)>
 
-{blurb, class: info}
+{blurb, class: discussion}
 If you'd like to learn more about Greg Young's thoughts on CRQS and how to use it, check out his eBook entitled "CQRS Documents By Greg Young". You can find a complete copy of the eBook online [^ch02-young-book]. 
 {/blurb}
 
