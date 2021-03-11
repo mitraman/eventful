@@ -222,6 +222,7 @@ In Young's blog post, he acknowledges that his CQRS pattern is rooted in another
 
 {blurb, class: info}
 If you'd like to learn more about Greg Young's thoughts on CRQS and how to use it, check out his eBook entitled "CQRS Documents By Greg Young". You can find a complete copy of the eBook online [^ch02-young-book]. 
+{/blurb}
 
 [^ch02-young-book]:<https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf>
 
@@ -229,7 +230,7 @@ Strictly speaking, CQRS is not an EVENTful approach by itself -- Young points th
 
 Below is a coding example on this idea from Young's blog post:
 
-{caption: "Example implementation of CQRS:"
+{caption: "Example implementation of CQRS"}
 ```java
 // CustomerService w/o CQRS
 void MakeCustomerPreferred(CustomerId)
