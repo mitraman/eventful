@@ -212,10 +212,23 @@ Optimizing ES-style systems for _writing_ data may mean you have a lot more work
 ES-style systems require you to carefully weigh the costs and advantages writing data quickly vs. reading data quickly. One way to tackle this problem is to adopt a hybrid approach to event-driven architecture by implementing a system that clearly separates querying data from writing data. 
 
 ### CQRS
-TK: layout CQRS as a common "middle-way" for those shifting to EVENTful systems.
+Another approach to introducing EVENTful services into your ecosystem is to use the Command and Query Responsibility Segregation pattern or CQRS. Greg Young is credited with coining the term and describing the pattern. In a 2010 blog post, Young explained CQRS like this: "CQRS is a very simple pattern that enables many opportunities for architecture that may otherwise not exist." [^ch02-young]
 
+[^ch02-young]:<http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/>
 
-**TK Bertrand Meyer Command-Query Separation (https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) also (https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction) **
+In Young's blog post, he acknowledges that his CQRS pattern is rooted in another, older, pattern call "Command-Query 
+Separation" first described by Bertrand Meyer in his 19XX book "Object-Oriented Software Construction" [^ch02-meyer]. In that book, Meyer points out that some functions will modify/add/delete data (commands) and some are just for reading data (queries). It's easy to see how these two patterns are similar.
+
+Stricly speaking, CQRS is not an EVENTful approach by itself -- Young points this out himself. However, by separating data reads from data writes, CQRS offers an excellent model for supporting EVENTful data streams. 
+
+ [^ch02-meyer]:<https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction)>
+
+**TK Bertrand Meyer Command-Query Separation (https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) also
+
+{blurb, class: tip}
+The CQRS pattern focuses on creating separate processing streams for reading data (the queries) and for writing data (the commands) and, for that reason, works well for organizations that want to continue to leverage their investment in relational data services while adding more EVENTful interactions to their overall architecture.
+{/blurb}
+
 
 **TK Greg Young CQRS naming (https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) CQRS and Event Sourcing
 
