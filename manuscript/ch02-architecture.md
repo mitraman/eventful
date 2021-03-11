@@ -121,13 +121,13 @@ Below is an example of an ECS message. This one comes from Amazon'e AWS platform
       "eventName": "ConsoleLogin",
       "awsRegion": "us-east-1",
       "sourceIPAddress": "0.0.0.0",
-      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36",
+      "userAgent": "...", 
       "requestParameters": null,
       "responseElements": {
             "ConsoleLogin": "Success"
             },
       "additionalEventData": {
-            "LoginTo": "https://console.aws.amazon.com/console/home?state=hashArgs%23&isauthcode=true",
+            "LoginTo": "https://console.aws.amazon.com/...",
             "MobileVersion": "No",
             "MFAUsed": "No" },
       "eventID": "324731c0-64b3-4421-b552-dfc3c27df4f6",
@@ -140,6 +140,7 @@ Below is an example of an ECS message. This one comes from Amazon'e AWS platform
 
 The ECS message pattern has some important implications for data storage services. First, when you are using ECS messages broadcast to multiple sources -- and each of those sources will be storing some or all the data in the message -- you introduce the possibility of inconsistency in data storage. This happens when Storage System A (SSA) processes and stores the information for the ECS message before Storage System B (SSB). When someone reads from SSA they may not get the same results as when they read from SSB. This inconsistency may only last for a few milliseconds but, in a high-traffic system that sends out thousands of ECS messages, the likelihood of an inconsistent read increases rapidly.
 
+{id: ch02-eventual-consistency}
 {aside}
 ### Eventual Consistency
 
@@ -219,12 +220,17 @@ In Young's blog post, he acknowledges that his CQRS pattern is rooted in another
 
 [^ch02-meyer]:<https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction)>
 
+{blurb, class: info}
+If you'd like to learn more about Greg Young's thoughts on CRQS and how to use it, check out his eBook entitled "CQRS Documents By Greg Young". You can find a complete copy of the eBook online [^ch02-young-book]. 
+
+[^ch02-young-book]:<https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf>
+
 Strictly speaking, CQRS is not an EVENTful approach by itself -- Young points this out himself. However, by separating data reads from data writes, CQRS offers an excellent model for supporting EVENTful data streams. One of the key aspects of Young's CQRS is to take what was typically a single programming object - the `CustomerService` object - and divide that into two related objects - the `CustomerWriteService` and `CustomerReadService` objects.
 
 Below is a coding example on this idea from Young's blog post:
 
 {caption: "Example implementation of CQRS:"
-```
+```java
 // CustomerService w/o CQRS
 void MakeCustomerPreferred(CustomerId)
 Customer GetCustomer(CustomerId)
@@ -254,10 +260,9 @@ CustomerSet GetPreferredCustomers()
 The CQRS pattern focuses on creating separate processing streams for reading data (the queries) and for writing data (the commands) and, for that reason, works well for organizations that want to continue to leverage their investment in relational data services while adding more EVENTful interactions to their overall architecture.
 {/blurb}
 
+Some of the advantages of the CQRS approach is that it allows you to optimize queries for speed and optimize command for safety and data consistency. However, there are drawbacks, too. By creating two data streams, you have the possibility of introducing data inconsistency between the two streams. WE discussed this challenge earlier in this chapter (TK see Eventual Consistency). Also, CQRS typically work well when the number of reads far outweighs the number of writes. If your implementation has the opposite profile (more writes than reads), you'll need to be sure CQRS is able to meet your service-level agreement (SLA) needs. 
 
-**TK Greg Young CQRS naming (https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) CQRS and Event Sourcing
-
-**TK clean up, expand, (re)move eventual consistency stuff**
+**TK write a wrap up here**'
 
 ### Messages vs. Resources
 Throughout this review of what it is that makes up EVENTful architecture you'll find a common theme: *messages*. One of the key elements of EVENTful architecture is the design, transport, and handling of the messages passed from producers to consumers. While RESTful architecture focuses a great deal on addressable *rsources* in order to power the system, EVENTful architecture places a great deal of emphsis on the messages themselves. 
