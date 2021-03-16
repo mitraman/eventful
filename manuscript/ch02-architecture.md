@@ -255,7 +255,7 @@ The CQRS pattern focuses on creating separate processing streams for reading dat
 
 Some of the advantages of the CQRS approach is that it allows you to optimize queries for speed and, at the same time, optimize commands for safety and data consistency. However, there are drawbacks, too. By creating two data streams, you have the possibility of introducing data inconsistency between the two streams. WE discussed this challenge earlier in this chapter (see [Eventual Consistency](#ch02-eventual-consistency)). Also, CQRS typically work well when the number of reads far outweighs the number of writes. If your implementation has the opposite profile (more writes than reads), you'll need to be sure CQRS is able to meet your service-level agreement (SLA) needs. 
 
-**TK write a wrap up here**'
+** TK wrap up this section (mamund) **
 
 ### Messages vs. Resources
 Throughout this review of what it is that makes up EVENTful architecture you'll find a common theme: *messages*. One of the key elements of EVENTful architecture is the design, transport, and handling of the messages passed from producers to consumers. While RESTful architecture focuses a great deal on addressable *rsources* in order to power the system, EVENTful architecture places a great deal of emphsis on the messages themselves. 
