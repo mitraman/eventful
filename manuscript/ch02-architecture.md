@@ -47,10 +47,6 @@ Both pub-sub and webhooks are examples of early reactive, asynchronous patterns 
 ### Event Notification (EN)
 The simplest EVENTful pattern is **event notification**. Martin Fowler describes EN as something that happens "when a system sends event messages to notify other systems of a change in its domain."[^ch02-fowler]. This is essentially like getting a “ping” when something happens (e.g. “a user updated their account”). 
 
-<!--
-optimizing design to be useful for consumers 
--->
-
 {blurb, class: tip}
 The Event Notification (EN) approach uses short, descriptive messages optimized for use by the message consumer.
 {/blurb}
@@ -85,10 +81,6 @@ The downside of the EN pattern is that the message usually doesn't carry enough 
 
 ### Event-Carried State (ECS)
 A similar pattern is event-carried state or ECS. In this approach, the actual related data is “carried” along with the alert (e.g. “a user updated their record. here is the user object ...”). with ECS messages, the message is more than just a notification. The message actually contains details about what was added or changed for a particular object or resource. 
-
-<!-- 
-optimizing for accuracy (object) comprehensivness)
--->
 
 {blurb, class: tip}
 The Event Carried State (ECS) approach uses complete, self-describing messages to optimize for data integrity and accuracy. 
@@ -261,7 +253,7 @@ CustomerSet GetPreferredCustomers()
 The CQRS pattern focuses on creating separate processing streams for reading data (the queries) and for writing data (the commands) and, for that reason, works well for organizations that want to continue to leverage their investment in relational data services while adding more EVENTful interactions to their overall architecture.
 {/blurb}
 
-Some of the advantages of the CQRS approach is that it allows you to optimize queries for speed and optimize command for safety and data consistency. However, there are drawbacks, too. By creating two data streams, you have the possibility of introducing data inconsistency between the two streams. WE discussed this challenge earlier in this chapter (TK see Eventual Consistency). Also, CQRS typically work well when the number of reads far outweighs the number of writes. If your implementation has the opposite profile (more writes than reads), you'll need to be sure CQRS is able to meet your service-level agreement (SLA) needs. 
+Some of the advantages of the CQRS approach is that it allows you to optimize queries for speed and, at the same time, optimize commands for safety and data consistency. However, there are drawbacks, too. By creating two data streams, you have the possibility of introducing data inconsistency between the two streams. WE discussed this challenge earlier in this chapter (see [Eventual Consistency](#ch02-eventual-consistency)). Also, CQRS typically work well when the number of reads far outweighs the number of writes. If your implementation has the opposite profile (more writes than reads), you'll need to be sure CQRS is able to meet your service-level agreement (SLA) needs. 
 
 **TK write a wrap up here**'
 
