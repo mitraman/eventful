@@ -1,7 +1,10 @@
 {id: ch02}
 # 2. The EVENTful Architecture (Ronnie)
 
-*(15 pgs)*
+<!--
+ Mike & Ronnie &
+ (15 pgs)
+--> 
 
 ## Highlights
 TK

@@ -1,7 +1,10 @@
 {id: ch03}
-# 3. What You Need to Know (Ronnie)
+# 3. What You Need to Know 
 
-*(15 pgs)*
+<!-- 
+ Ronnie
+ (15 pgs)
+-->
 
 ## Highlights
 

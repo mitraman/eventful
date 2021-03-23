@@ -1,7 +1,10 @@
 {id: ch04}
-# 4. Designing EVENTful systems (Mike) 
+# 4. Designing EVENTful systems 
 
-*(20 pgs)*
+<!-- 
+ Mike
+ (20 pgs)
+-->
 
 ## Highlights
 TK

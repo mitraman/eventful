@@ -1,7 +1,10 @@
 {id: ch06}
-# 6. Parting Thoughts (Ronnie)
+# 6. Parting Thoughts 
 
-*(7 pgs)*
+<!-- 
+ Ronnie
+ (7 pgs)
+-->
 
 ## Highlights
 tK
