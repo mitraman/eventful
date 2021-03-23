@@ -11,13 +11,13 @@ In our recent consulting experience, we've seen a steady increase in the use of 
 This book is aimed at giving experienced software architects and senior developers a quick overview of the differences and challenges you're likely to encounter as you increase your use of EDA solutions. However, we've structured the book to make it valuable to decision-makers throughout organizations of any size. 
 
 ### Overview for Decision-Makers
-If your goal is to get "the lay of the land" for event-driven architecture and a quick overview of the opportunities and challenges companies face as they dive into the event-driven pool, you can focus on reading chapters [one](#ch01) and [six](#ch06), skim [two](#ch02) and [three](#ch03), and skip chapters [four](#ch04) and [five](#ch05).
+If your goal is to get "the lay of the land" for event-driven architecture and a quick overview of the opportunities and challenges companies face as they dive into the event-driven pool, you can focus on reading chapters [one](#ch01) and [six](#ch06).
 
 ### Crash Course for Architects and Team Leads
-If you will be responsible for supervising the introduction of EDA and setting design and implementation policies, we recommmend you skim chapters one and two, focus on chapter 2 & 3, and review 4 & 5 as well. 
+If you will be responsible for supervising the introduction of EDA and setting design and implementation policies, we recommmend you focus on chapter [two](#ch02) & [three](#ch03).
 
 ### Examples for Developers and Designers
-For those changed with the actual design and programming of EDA-based solutions, chapters four and five will probably be most helpful. 
+For those changed with the actual design and programming of EDA-based solutions, chapters [four](#ch04) and [five](#ch05) will probably be most helpful.
 
 No matter your role in the company, you can get a lot from the book relatively quickly by reading the Highlights section at the start of each chapter.
 
