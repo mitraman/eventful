@@ -1,5 +1,5 @@
 {id: ch02}
-# 2. The EVENTful Architecture (Ronnie)
+# 2. The EVENTful Architecture
 
 <!--
  Mike & Ronnie &
