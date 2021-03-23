@@ -1,9 +1,15 @@
 {mainmatter}
 
 {id: ch01}
-# 1. Why EVENTful? (Mike)
+# 1. Why EVENTful?
 
-*(10 pgs)*
+<!-- 
+
+  MIKE 
+ (10 pgs)
+
+-->
+
 
 ## Highlights
 Increased business demand for real-time interactions along with advances in technology are leading organizations to update their existing RESTful API platforms with EVENTful approaches. These EVENTful APIs patterns can also improve a company's ability to successfully execute on digital transformation initiatives, improve the quality and reusability of their API platform, and provide additional ways to observe and evaluate the business value of the overall API program.
