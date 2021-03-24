@@ -36,7 +36,11 @@ Using our experience as a guide, we've laid the book out into three general topi
  * Finally, chapter six ["Parting Thoughts"](#ch06), offers some general advice and cautionary tales that will be handy as you start out on your company's EDA journey.
   
 ## What's Not Covered?
+Because we worked to keep the book small, we left out lots of details. For example, we cover key elements of a successful EDA-style arhcitecture (in [chapter two](#ch02) but we don't go into much depth on how to acquire or build each of those elements. We point out challenges like loose coupling, stable message design, and distance and latency in [chapter three](#ch03) but we only touch on the processes and practices you need to put in place to meet those challenges. Even our example solution (chapters [four](#ch04) and [five](#ch05)) are purposely kept light and simplistic in order to focus on main points rather than explore the inevitable subtleties of EDA implemenation.
 
+Instead, we lean heavily on the wisdom and experience of others in our "Additional Reading" sections at the of each chapter. Our plan here is to clue you in to important patterns, practices. and patfalls and then point out some valuable reference and teaching materials to help you craft your own local solutions within your organization.
+
+There are lots of good books on the specifics of designing, building, releasing, and maintaining EDA solutions. This book is meant to get you started and point you in the right direction.
 
 ## Acknowledgements
 TK
