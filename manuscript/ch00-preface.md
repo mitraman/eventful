@@ -6,7 +6,11 @@
 <!--
  Mike
  (3 pgs)
+ 
+ TK -- needs some of Ronnie's magic here.
+ 
 -->
+
 Welcome to the world of EVENTful services and APIs.
 
 In our recent consulting experience, we've seen a steady increase in the use of event-driven architecture (EDA) in companies of all sizes. In particular we've noticed that organizations that already have a well-establised software engineering culture tend to struggle when introducing EDA to their developer community. It was our collaboration with these kinds of companies that encouraged us to put together this small book on how to successfully move from a primarily RESTful style to a style that includes more event-driven (what we are calling EVENTful) implementatations.
