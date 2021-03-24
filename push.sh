@@ -4,7 +4,7 @@
 
 if [ -z "$1" ] 
 then
-  echo USAGE: commit "'comment'"
+  echo USAGE: push "'comment'"
 else
   git add --all
   git status
