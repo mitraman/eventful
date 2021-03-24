@@ -35,9 +35,13 @@ No matter your role in the company, you can get a lot from the book relatively q
 Using our experience as a guide, we've laid the book out into three general topics that cover the "Why", "What", and "How" of EVENTful services. 
 
  * In chapter one, ["Why EVENTful?"](#ch01), we take a look at both the market and technical changes of the last few years to see how they have made event-driven architecture (EDA) both more feasiable and more profitable.
+ 
  * In chapter two,  ["EVENTful Architecture"](#ch02), we dive into the different _styles_ of EDA and how adopting an EDA model provides the opportunity to change your company's technical infrastructure as well as your IT staff's mindset.
+ 
  * In chapter three, ["What You Need to Know"](#ch03), we break down the key elements of an EDA-style solution including addressing key challenges such as coupling between parts of the system, and dealing with both distance and latency in your design.
+ 
  * Chapter four, ["Designing EVENTful Systems"](#ch04), and chapter five, ["Customer Onboarding Example"](#ch05), walk the reader through the hands-on process of designing and implementing a sample EDA solution. 
+ 
  * Finally, chapter six ["Parting Thoughts"](#ch06), offers some general advice and cautionary tales that will be handy as you start out on your company's EDA journey.
   
 ## What's Not Covered?
