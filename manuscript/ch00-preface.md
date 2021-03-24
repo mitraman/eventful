@@ -7,10 +7,11 @@
  Mike
  (3 pgs)
 -->
+Welcome to the world of EVENTful services and APIs.
 
-## Who Should Read This Book?
 In our recent consulting experience, we've seen a steady increase in the use of event-driven architecture (EDA) in companies of all sizes. In particular we've noticed that organizations that already have a well-establised software engineering culture tend to struggle when introducing EDA to their developer community. It was our collaboration with these kinds of companies that encouraged us to put together this small book on how to successfully move from a primarily RESTful style to a style that includes more event-driven (what we are calling EVENTful) implementatations.
 
+## Who Should Read This Book?
 This book is aimed at giving experienced software architects and senior developers a quick overview of the differences and challenges you're likely to encounter as you increase your use of EDA solutions. However, we've structured the book to make it valuable to decision-makers throughout organizations of any size. 
 
 We worked to keep this book small and easy to read so, no matter your role or position in your organization, we hope you'll read this from cover to cover. However, in case you're really pressed for time and/or you just want to get to the parts that would be interesting to _you_, here are our pointers for getting the most out of text quickly.
