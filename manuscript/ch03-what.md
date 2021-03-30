@@ -99,19 +99,33 @@ Tk The REST/sync version
 TK The async version and significance of this difference
 
 
-### Messaging Infrastructure
+### Messaging and Data Infrastructure
 
 In the technology world, infrastructure serves as a platform to support the software that we need to build. For example, an infrastructure of computers, disk arrays and operating systems allows a team to focus on engineering software that depends on those components. An infrastructure of container registries, Cloud services and container orchestration allows a team to write and ship software as containers. We usually establish an infrastructure platform so that our teams can reduce the scope, effort and focus of their work by taking advantage of a shared set of tools and processes.
 
-There is almost always some form of infrastructure in the message based integration world as well. When we design a system that connects software together, we take advantage of both hardware and software tools and systems to reduce the work we need to do to communicate in a message-based way. For example, in a RESTful system, we'd typically use the HTTP application protocol, the TCP/IP network protocol and a series of ethernet and fibre-optic cables to aid communication. A good example of this kind of model is the OSI model which describes the layers of a network-based communication stack.
+There is almost always some form of infrastructure in the message based integration world as well. When we design a system that connects software together, we take advantage of both hardware and software tools and systems to reduce the work we need to do to communicate in a message-based way. For example, in a RESTful system, we'd typically use the HTTP application protocol, the TCP/IP network protocol and a series of ethernet and fibre-optic cables to aid communication. A good example of this kind of model is the OSI model (TK link) which describes the layers of a network-based communication stack.
 
+TK: following para needs to be simplified - too difficult to read
 But, we often add additional message infrastructure within the "application" layer of the stack to make communication easier, more consistent and safer. For example, in a RESTful system, implementers often incorporate message-based routing, access control, threat protection and message translation as a core infrastructure component. This way, teams can deliver safer, dynamic API-enabled applications without implementing that logic themselves. Instead, they focus on application logic and deploy their applications behind a set of messaging infrastructure components that ensure a minimum set of entry criteria is met before a message consumer can request a response.
 
-When it comes to an EventFUL system, there is often a need for a special set of messaging infrastructure tools. 
+One of the biggest differences between an Eventful system and a RESTful system is that lifetime of a message. This turns out to have a big impact on the kind of infrastructure that we need to build. In the RESTful world, a client and server exchange messages over a network connection and the message exists within the lifetime of that network conversation. For example when a server responds to a client's HTTP GET request, that response dissapears once the client consumes it. Of course, the client or an intermediary could choose to retain that message and make it available to others to extend its life. But, there isn't anyting in the RESTful interaction itself that prescribes or guides implementers to do this.
 
+In the Eventful world, most of the event-based patterns rely on durable messages. That's because in most of our event-based patterns we want messages to endure and stay available for multiple consumers to read and consume. In some patterns, like event sourcing, we want the event mesasages to last forever - forming a serialised history of everything that has ever taken place. This is a radical departure from the ephemereal or temporary nature of RESTFul system. 
 
-TK Messaging infra. compare and contrast sync and async
-TK highlight how important this is for an async interaction
+To support this persistent state for messages, Eventful infrastructure designs need to address three areas of concern: data storage, data distribution and message discoverability.
+
+(TK not sure what the markdown equivalent of this is yet.)
+
+Data Storage::
+  Event messages will need to be stored, so you'll need to pay attention to the system qualities of the storage solution you choose. Particularly in terms of its "non-functional" qualities. How easily can the data storage system scale as the number of messages grows? How is performance impacted when multiple concurrent writes need to be performed? What is the mechanism for recovering from a failure? How is the storage solution backed up and archived securely? 
+
+Data Distribution::
+  Modern systems are often composed of code that runs in multiple geographic regions, data-centres or logical clustuers. This can pose a challenge for data storage when data needs to be synchronised across boundaries. For example, if we deploy an event messaging backbone for a globally distributed system, how can we ensure that event messages are transmitted in sequence in all regions? Are we willing to impact the performance of our event messaging system so that we can maintain the integrity of events? Or can we take an "eventual consistency" approach and sacrifice immediate integrity for the sake of performance? If you are building a non-trivial system, you'll likely need to address these questions of distributed data management and plan a solution accordingly.
+
+Message Discoverability::
+  Its one thing to store messages in an enduring way. Its another to be able to easily retrieve them and use them. Evenful systems need an infrastructure that makes it easy to find and consume mesasages. Traditionally, event-based systems have used addressable message spaces to make messages easier to find. For example, in MQ tooling, messages can be read from named "Message Queues" on a server. In JMS (Java Messaging Service), messages are published to "topics" for others to read from. In addition, most event-based systems also support text-based, property-based and pattern-based search methods to support finer-grained discovery of messages.  In an Eventful sytstem its a good idea to establish a shared understanding of the discoverability mechanism, naming standards and key words (or properties) that consumers and providers in your system should use. 
+
+As you might guess, there is a very high level of complexity to deal with in an event-based infrastrucutre. But, just as we don't need to build our own TCP/IP socket layer when we implement RESTful APIs, most people don't build their own event infrastructure from scratch. But, unlike TCP/IP and HTTP, there isn't a definitive standard that we can apply to our Eventful infrastructure. Instead, you'll need to select from a set of tools and chooose the ones that best fit your needs. For example, at the time of writing, Kafka is a popular choice for event-streaming patterns because it comes with a topic-based discovery system, permanent message storage and a decentralised deployment model with a good performance profile. Its generally a safe choice for infrastructure, but beware - it comes with a complexity cost and requires specialist expertise to set it up and run it properly.
 
 ### People
 
