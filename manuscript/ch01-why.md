@@ -1,13 +1,20 @@
 {mainmatter}
 
 {id: ch01}
-# 1. Why EVENTful? (Mike)
+# 1. Why EVENTful?
 
-*(10 pgs)*
+<!-- 
+
+  MIKE 
+ (10 pgs)
+
+-->
+
 
 ## Highlights
-TK
+Increased business demand for real-time interactions along with advances in technology are leading organizations to update their existing RESTful API platforms with EVENTful approaches. These EVENTful APIs patterns can also improve a company's ability to successfully execute on digital transformation initiatives, improve the quality and reusability of their API platform, and provide additional ways to observe and evaluate the business value of the overall API program.
 
+{id: ch01_eventful}
 ## From RESTful to EVENTful 
 A trend we have been noticing, as we talk to organizations large and small about software architecture and design, is that companies which previously worked to standardize on using only *RESTful* API patterns are now starting to incorporate another style of APIs; ones that we are calling *EVENTful* APIs. These are APIs that rely on interaction patterns different than REST's client-server and call-response model. Instead, EVENTful APIs support a publish-subscribe style interaction where any service can *publish* one or more channels (sometimes called *topics*) to which any number of other services or clients can *subscribe*. Subscribers receive data that is pushed to them any time a publisher has new data that matches the registered topic. Because new messages are sent as soon as publishers have new data, this type of API call is initiated by domain events (users logging, services writing, updating, or removing data, etc.) instead of being initiated by a client somewhere sending a request to a server.
 
@@ -64,13 +71,13 @@ And, as we'll see in the [next section](#ch01-technology) on the technology aspe
 *EVENTful APIs can add speed to your runtime products and to your internal processes.*
 
 ### Increasing Connections 
-Another force that is driving companies to add more EVENTful endpoints to their system is the need to _increase connections_ between both components within the organization's IT infrastucture and between customers and partners. While comes of this work to increase connections is strategic -- a way to expand and strengthen business relationships -- much of the focus on connections is part of the inevitable tide of more connected, more reactive internal systems.
+Another force that is driving companies to add more EVENTful endpoints to their system is the need to *increase connections* between both components within the organization's IT infrastucture and between customers and partners. While comes of this work to increase connections is strategic -- a way to expand and strengthen business relationships -- much of the focus on connections is part of the inevitable tide of more connected, more reactive internal systems.
 
 One example of this drive for internal, reactive connections is the rising use of in-house status dashboards to monitor both business and infrastructure health. It is more and more common today to walk into the main lobby of a company and see a giant screen displaying the real-time count of connected customers, the location of shipped goods, and/or the number of completed business transactions within the last hour.  This display is a way for divisions to monitor their business in near real-time. No need for daily, weekly, and monthly printed reports delivered via in-person meetings. Instead, anyone in the organization can call up the company dashboard and view the latest stats on the business and compare that to the company's stated objects and key results (OKRs[^ch01-okrs]).
 
 [^ch01-okrs]: <https://en.wikipedia.org/wiki/OKR>
 
-But business monitoring is just part the real-time data story. As we'll see (below) when we talk about the technology side drivers for EVENTful systems, another reason for increased connections is the ever-growing number of 'connect-able' components inside the IT shop. Most platforms offer ways to automatically "plug-in" to monitoring endpoints and stream that internal performance data straight to the same kinds of dashbaords that are displaying business metrics. But this time the screens are displaying the number of connected components around the world, the speed of transactions, error-rates, and more. These displays rely upon gigabites of real-time data streaming from every connected component and gateway within the company's network in order to present a "traffic report" on how data is moving through the system. This allows managers to essentially predict and correct network congestion and roadblocks the way transportation and logistics managers ensure the safe and timely delivery of their physical goods.
+But business monitoring is just part the real-time data story. As we'll see (below) when we talk about the technology side drivers for EVENTful systems, another reason for increased connections is the ever-growing number of 'connect-able' components inside the IT shop. Most platforms offer ways to automatically "plug-in" to monitoring endpoints and stream that internal performance data straight to the same kinds of dashboards that are displaying business metrics. But this time the screens are displaying the number of connected components around the world, the speed of transactions, error-rates, and more. These displays rely upon gigabites of real-time data streaming from every connected component and gateway within the company's network in order to present a "traffic report" on how data is moving through the system. This allows managers to essentially predict and correct network congestion and roadblocks the way transportation and logistics managers ensure the safe and timely delivery of their physical goods.
 
 *More connections means more data points and that means more opportunity to observe and improve data flows between internal systems and systems outside the company's network.*
 
@@ -85,7 +92,18 @@ EVENTful APIs can also improve a company's ability to reach across deparment bou
 
 {id: ch01-technology}
 ## Why Now? Technology is Changing
-TK
+As we discuess at the start of [this chapter](#ch01_eventful), the need for real-time communications at the business level has been around in one form or another for over twenty years. What's different now is that the technology required to support real-time messaging has finally caught up and become widely available at low cost. Advances in hardware and software have played their role with the heavy lifting going to the software side. Architectural models that favor small-sized messages, asynchronous programming patterns, and virtualized servers have all had a major role in making it easier to design and build EVENTful systems.
+
+Three key drivers on the technology side will be highlighted here including:
+
+The Rise of Asynchronous and Reactive
+: EVENTful systems both rely upon and are driven by the use of reactive data production and asynchronous data-consumption patterns.
+
+The Growth of Microservices 
+: EVENTful software architecture can make it easier to modify an exsiting system built from small, independently-deployable services.
+
+The Power of Serverless and Cloud Native
+: Both serverless and cloud native implementation rely on EVENTful patterns to successfully support services on the network.
 
 ### The Rise of Asynchronous and Reactive 
 One of the key drivers in the inreasing demand for EVENTful systems is the rise in the use of asynchronous an reactive style programming models. One of the best-known web frameworks for reactive programming was initially created by Jordan Walke while at Facebook[^ch01-react]. Intially driven by the need to improve handheld drive user experiences, React and other similar frameworks rekindled an interest in EVENTful implementation patterns that date back to the mid-1980s when it was used to handle interactions with hardware-centric Supervisory Control and Data Acquisition (SCADA[^ch01-scada]) devices.
@@ -106,33 +124,63 @@ Another reason for the increase in EVENTful architecture is the continued succes
 
 [^ch01-microservices]: <https://en.wikipedia.org/wiki/Microservices>
 
-Using small, independently-deployable components allows software teams to update and release their components more often and with less likelihood of internal errors. But it brings with it new challenges in the form of additional inter-component network traffic and the possibility of introducing breaking changes in the processing and data models share between components. It is these last two elements (processing and model changes) that EVENTful architecture can alleviate. In EVENTful systems, the process model can vary based on how components publish and subscribe to data flows (we'll talk more about this in [#ch03](Chapter 3)). 
+Using small, independently-deployable components allows software teams to update and release their components more often and with less likelihood of internal errors. But it brings with it new challenges in the form of additional inter-component network traffic and the possibility of introducing breaking changes in the processing and data models share between components. It is these last two elements (processing and model changes) that EVENTful architecture can alleviate. In EVENTful systems, the process model can vary based on how components publish and subscribe to data flows (we'll talk more about this in [Chapter 3](#ch03). 
 
-*EVENTful system can make it easier to modify an exsiting system built from small, independently-deployable services.*
+*EVENTful software architecture can make it easier to modify an exsiting system built from small, independently-deployable services.*
 
 ### The Power of Serverless and Cloud Native
-TK
+Finally, another key technology element that has given rise to increased use of EVENTful designs are the growing reliance on *serverless*[^ch01-serverless] and *cloud native*[^ch01-cloudnative] runtime platforms. The two phrases have similar histories and definitions and both focus not on the software architeture (microservices) or the message model (asynchronus and reactive) but, instead, focus on the way server infrastructure is implemented and managed at runtime.
+
+[^ch01-serverless]: <https://en.wikipedia.org/wiki/Serverless_computing>
+[^ch01-cloudnative]: <https://github.com/cncf/toc/blob/master/DEFINITION.md> 
+
+Serverless platforms don't actually run without servers, of course. But serverless platforms greatly reduce the effort needed to mount a new server, scale that server up and down in response to traffic loads, and monitor and manage that server over time. In order to support these options, serverless platforms rely on real-time event services to handle control-channel messaging like monitoring the health of server instances, tracking parallel copies of a particular service, and allowing operations staff to spin up, modify, and take down running services without the need to stop and start network connections. In essence, serverless platforms are EVENTful platforms.
+
+The same could be said for cloud native implementations. Like the name implies, cloud native services take advantage of widely distributed, independently operating server instances hosting code, data, and workflow services -- sometimes widely separated by time and distance.  While serverless platforms use EVENTful patterns to communicate control-channel information, cloud native platforms also relay in EVENTful messaging to accomplish the stated goals of the hosted microservices in the cloud including passing application data between services, emitting API and UI content on demand. It is difficult to imagine the success of cloud native services without the use of real-time EVENTful messaging.
+
+*Both serverless and cloud native implementation rely on EVENTful patterns to successfully support services on the network.*
 
 {id: ch01-events}
 ## Where Events Fit In
-TK
+So business demands are calling for more real-time services and technology advances are making it easier and more cost effective to support EVENTful implementations. That's all good. But what is it about the EVENTful approach that makes it more valuable from both the business and technology perspective?
+
+It turns out a well-executed EVENTful API program can be an important catalyst for enabling your organizatsions modernization and digital transformation efforts. That is because and EVENTful approach makes it easier to put data consumers -- customers -- first when you design your APIs. EVENTful APIs are also relatively easy to monitor and that can improve your company's ability to observe and evaluate the business value of your API platform.
+
+And, the same holds true for the technical aspects of EVENTful services. EVENTful designs usually result in fine-grained messages and narrowly-focused data feeds. Both of these can reduce the time it takes to implement a new service or data feed and decrease the chance that API changes cause downtiem in your system.
+
+Let's look at each of these aspects (business and technology) more closely.
 
 ### Meeting Business Demands
-TK
+Inreasing your use of EVENTful services can help your organization meet the growing demaind for real-time inteactions. Employing EVENTful design patterns helps put information consumers up-front and center. Who is consuming our services and what data do they need to solve their problems? Answering these questions can result in well-targeted EVENTful APIs that help your partners, customers, and internal teams get the right data at the right time in order to do their work.
+
+EVENTful implementations can also help your teams improve the overall observability of your API platform. By monitoring the various real-time feeds, tracking consumption, and analyzing usage, you can gain important insight into just which APIs are making a positive contribution to your company's OKRs and to the organization's bottom line.
+
+Finally, using EVENTful APIs can make it easier to not only share information with partners and customers but also *consume* data from other sources and incorporate that information into your own products and services. As more organizations in your market space adopt EVENTful patterns, you and your teams can take advantage of the EVENTful opportunities around you. In some cases, your use of EVENTful APIs can give your teams the edge in competing for a share of the growing real-time market.
 
 ### Reducing Technical Challenges
-TK
+increasing your reliance on EVENTful patterns can also help your teams overcome a handful of technical challenges on the road to digital transformation and agile implementation. This can result in a smoother on-boarding of new services, fewer disruptions when updating existing components, and greater resilience in consuming important data.
+
+As you'll see in [Chapter 3](#ch03), you can take advantage of EVENTful patterns when designing your service interfaces and data messages. These patterns help you focus on small-grained changes and to express the design ways that reduces the chance of breaking existing interfaces. This small-grained, focused design approach can also lead to a programming patterns that encourage the use of small, indepedently-deployable data consumers and producers. This can not only speed the process of "getting from idea to install", it can also reduce the likelihood of breaking existing code.
+
+Finally, the process of writing EVENTful data consumers (see [Chapter 4](#ch04)) can lead developers to writing more general and data-driven client applications that are both efficient and runtime but also resilient. They can be less prone to crashes when data models change and more able to survive minor model changes without experience additional downtime.
 
 ## Summary
-TK
+In this chapter we reviewed the an increasing trend in enterprise API programs to add more real-time, EVENTful, APIs alongside their existing RESTful implementations. This trend is drive by business demands at both the internal and external level. The need to improve the company's time to market, the increased connections across organizations as well as within the IT family and the ability expand the reach of the company's digital footprint are all leading to a rise in EVENTful services.
 
-## References
+On the technology side, improvements in asynchronous and reactive programming languages, the continued growth of microservice style components, and the power of serverless and cloud native platforms have all made the design and implementation of EVENTful architectures safer, cheapers, and easier to use.
+
+Finally, organizations that embark on this real-time journey can find a well-designed and implemented EVENTful program can help improve both the business and technological foundation of the company and improve that enterprise's ability to compete in the ever-growing real-time API market.
+
+In the next chapter, we'll dig deeper into just what it means to create an EVENTful platform and how tha differs from the commomn RESTful approach used today.
+
+## Additional Reading
  * For more on Objectives and Key Results (OKRs), check out John Doerr's ["Measure What Matters"](https://www.penguinrandomhouse.com/books/546304/measure-what-matters-by-john-doerr-foreword-by-larry-page/)
- * TK Reactive
- * Tk Async
- * TK Microservices
- * TK Serverless
- * TK Cloud Native
+ * For more on Reactive programming you can start with the ["Reactive Manifesto"](https://www.lightbend.com/blog/reactive-manifesto-20) and this "explainer" article from ["Linux Magazine"](https://www.linux-magazine.com/Issues/2014/163/Reactive-Programming)
+ * You'll find a nice "deep dive" course on Asynchronous Programming in O'Reilly's ["Getting Started with Reactive Programming—Asynchronous Java, Promises, Actors, and Reactive Streams"](https://www.oreilly.com/learning-paths/learning-path-getting/9781492028611/)
+ * See the book ["Microservice Architecture"](https://learning.oreilly.com/library/view/microservice-architecture/9781491956328/) for an overview of microservices in general. 
+ * For a hands-on microservice experience, we recommend ["Microserivces Up and Running"](https://learning.oreilly.com/library/view/microservices-up-and/9781492075448/).
+ * The booklet ["What Is Serverless?"](https://learning.oreilly.com/library/view/what-is-serverless/9781492074915/) provides a quick overview on this important subject.
+ * Check out the book ["Cloud Native"](https://www.oreilly.com/library/view/cloud-native/9781492053811/) from O'Reilly for more on th cloud native world.
 
 
 

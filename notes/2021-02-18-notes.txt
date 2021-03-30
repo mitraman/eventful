@@ -1,0 +1,9 @@
+2021-02-18 NOTES
+
+- reviewed ronnnie's chart of "the state of things"
+- a bit of a reality check experience!
+- this what we're dealing with when advocating to *add* EVENTful implementations.
+- we might want to include a section/chapter on facing this reality?
+- a review of the target personas for this book
+
+

@@ -1,31 +1,156 @@
-﻿{id: ch03}
-# 3. What You Need to Know (Ronnie)
+{id: ch03}
+# 3. What You Need to Know 
 
-*(15 pgs)*
+<!-- 
+ Ronnie
+ (15 pgs)
+-->
 
 ## Highlights
 
-Designing any API-enabled system takes a reasonable amount of technology "know-how". You need to understand at least the basics of networks, coding and integration tools to put together a solution that works with composable parts. But, for most orgniasiations its not enough for an API-enabled system to work. It also needs to work *well* - and that requires a special kind of design skill and experience.
+Designing any API-enabled system takes a reasonable amount of technology "know-how". You need to understand at least the basics of networks, coding and integration tools to put together a solution that works with composable parts. But, in most cases its not enough for an API-enabled system to just "work". It also needs to work *well* - and that requires a special kind of design skill and experience.
 
-To work well, the software needs to enable some kind of objective. For example, a business that wants to cut down on costs will want software that requires less people to maintain. An 
+Working well means that the software goes beyond doing what it's supposed to. It also needs to help your team or company with their strategic goals. For example, a business that wants to cut down on costs will want software that requires less people to maintain. A product team that wants to make lots of changes very fast will want software that is designed for fast and frequent release with low change costs. A company that wants to monetise data will want software that makes it easy to collect, tag and manage all the data in the system.
 
-In an eventful system there are three factors that have the biggest impact on design: coupling, distance and time. Let's take a look at each of these areas and the decisions that you'll need to make
+Professional software designers, developers and architects need to be good at making software that fits those kinds of needs. Just about anyone can learn how to implement a simple API - but, not everyone can make APIs that are highly maintainable, work easily together and don't break when the unexpected happens. That turns out to be the hard part. 
+
+Thankfully, over the years the software architecture industry has developed a number of techniques, philosophies, patterns, methods and styles to make this job a little bit easier. The eventful system is one of those styles and it can help you build software that works well. But, like any software style there are trade-offs to consider.
+
+An eventful system isn't the answer to every software integration problem that you'll face. It has a set of characteristics that make it well-suited for a broad number of scenarios, but it certainly isn't a silver bullet. You need to understand the characteristics of an eventful system and how they relate to the problems you are solving and the type of software that you want to build.
+
+There are three factors that are the most important to consider for an eventful system: coupling, distance and latency. We'll explore each of these factors and how they impact eventful architectures.
+
+TK need segue into this new section
+
+## Dissecting the Eventful System
+
+In Chapter 2, we explored a number of different Eventful architecture styles and patterns. As we saw, there are lots of different ways of implementing an Eventful, asynchronous messaging system. That complexity can make it difficult for us to come up with a good, overarching way of designing them. The good news is that there are some fundamental parts of an Eventful system that are consistent across all those variations. If we can understand those parts, we'll be able to use them to explore the factors of coupling, distance and latency universally.
+
+{blurb}
+The parts of the system that we'll be describing here actually apply to RESTful and synchronous interactions as well. We'll compare the Eventful version and synchronous version of each of them throughout this chapter.
+{/blurb}
+
+There are five universal parts of an Eventful system that are most important to consider: producers & consumers, the network, the message, the infrastructure and the people. Let's take a look at each of them in turn.
+
+### The Network 
+
+A key characteristic for the kinds APIs we're talking about in this book is that they use a network to communicate. That probably feels obvious. But, its an important distinction for us to understand. We need to acknowledge that the network exists and that it has an impact on the way we are designing our software. With the modern tooling, systems and layers of abstrasction that we have today, its easy to forget that the network is there. 
+
+A classic example of the importance of networks for API design are the [fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing):
+1. The network is reliable
+2. Latency is zero
+3. Bandwidth is infinite
+4. The network is secure
+5. Topology doesn't change
+6. There is one administrator
+7. Transport cost is zero
+8. The network is homogenous
+
+{aside}
+These fallacies have evolved and extended by different authors over the years. But, Peter Deutsch is usually credited as the primary author.
+{/aside}
+
+The fallacies listed above highlight the things that we often assume to be true when we design solutions, but actually aren't. For example, consider the software architecture diagram in [fig-1]:
+
+TK fig-1: simple box and line arch diagram
+
+On paper, this architecture paints a picture of a system that is neatly componentised into boxes that can pass event messages to each other. We could implement these components with identical messaging components and build a pretty good system. But, what if we mapped these components to a physical network architecture like [fig-2]?
+
+TKf fig-2: box and line arch with network boundaries, some components at a great distance, others in a mobile app.
+
+Suddenly, the realities of the network become apparent. Components that are physically far apart will need to account for latency in their design. Components that are deployed on mobile devices will need to account for a lack of network reliability and constantly changing geographic positions. Overall, the system is comprised of many different networks and sub-networks which each of their own characteristics and security profiles. 
+
+The network has a big impact on how we think about the Eventful design in terms of messaging time and message size. We'll see examples of this when we dive in to the aspects of time and space later in this chapter. When you design an Eventful system it's crucial that you have an idea of how the system will be deployed and realised from a network perspective.
+
+In a RESTful system we almost always use TCP/IP networks and the HTTP application protocol. These are both really well-suited for the synchronous, request-reply context of a RESTful interaction. But, as you start to build EVENTful systems you can start to consider other network options. For example, the UDP network protocol is optimised for broadcasting communications to many components. The MQTT application protocol is optimised for sending lots of small messages between physical devices. The 
+
+{blurb}
+Be careful of confusing the synchronicity of a network or application protocol with the synchronicity of your Eventful system. It's absolutely possible to deploy an event system over HTTP - just as its absolutely possible to deploy a request/reply system on an asynchronous network.
+{/blurb}
+
+The network has a big impact on how components communicate from a transport perspective. Now, let's take a look at that thing we are sending and receiving in the network - the message. 
+
+### The Message
+
+RESTful and Eventful systems have one very important thing in common: they are oriented around message based communication. Messages are units of communication. In the RESTful world, messages are categorised as requests and responses. When we use the HTTP protocol, a message contains a _representation_ of a server's resource. That representation may be an expression of the state of a resource at a certain point of time (e.g. the number of widgets) or a target state of a resource (e.g. a new label for a widget).
+
+{blurb}
+For more on representations and resources, take a look at.... TK
+{/blurb}
+
+Eventful systems also use messages as a form of communication. But, instead of requests and responses, the messages are *events*. Unlike requests and responses which are meant to be paired, event messages exist on their own as an island. While a request is a solicitation for something to happen (e.g. "what is the current time?") an event just communicates a fact without solicitation (e.g. "at the tone, the time will be 10:35").
+
+In practice, the message turns out to be an incredibly important part of an EVENTful design. Just like in a RESTful system, an event message contains a representation of a time-bound state. Understanding how to create, parse and use these representations is a key element of an EVENTful system design. But, surprinsingly there is very little advice on how to do that in the industry. We'll address the importance of message design later in this chapter when we talk about coupling. Later, in the book we'll cover some design techniques and good practices to help you design better event messages.
+
+With the importance of the message established, lets move on to understanding the components that create and use messages: the producers and consumers.
+
+### Producers and Consumers
+
+TK - getting a bit stuck here now. In a reuest-reply interaction, a requestor both produces request messages and consumes resopnse messages. But, don't want to make this so cmplicated. Need to think about it a bit more.
+
+In  system there are two types of actors:  producers and message consumers. As you'd expect, message producers create (or produce) messages and message consumers use (or consumer) messages. The distinction between producers and consumers is a useful one because it denotes a dependency relationship. Message consumers will need to parse the messages that producers create. Therefore, there is a dependency on the producers to create messages that consumers will understand.
+
+In a RESTful system, the consumer-provider relationship is fairly easy to understand. Systems that send requests are 
+
+TK intro the concept of message producers and message consumers. 
+
+Tk The REST/sync version
+
+TK The async version and significance of this difference
+
+
+### Messaging Infrastructure
+
+In the technology world, infrastructure serves as a platform to support the software that we need to build. For example, an infrastructure of computers, disk arrays and operating systems allows a team to focus on engineering software that depends on those components. An infrastructure of container registries, Cloud services and container orchestration allows a team to write and ship software as containers. We usually establish an infrastructure platform so that our teams can reduce the scope, effort and focus of their work by taking advantage of a shared set of tools and processes.
+
+There is almost always some form of infrastructure in the message based integration world as well. When we design a system that connects software together, we take advantage of both hardware and software tools and systems to reduce the work we need to do to communicate in a message-based way. For example, in a RESTful system, we'd typically use the HTTP application protocol, the TCP/IP network protocol and a series of ethernet and fibre-optic cables to aid communication. A good example of this kind of model is the OSI model which describes the layers of a network-based communication stack.
+
+But, we often add additional message infrastructure within the "application" layer of the stack to make communication easier, more consistent and safer. For example, in a RESTful system, implementers often incorporate message-based routing, access control, threat protection and message translation as a core infrastructure component. This way, teams can deliver safer, dynamic API-enabled applications without implementing that logic themselves. Instead, they focus on application logic and deploy their applications behind a set of messaging infrastructure components that ensure a minimum set of entry criteria is met before a message consumer can request a response.
+
+When it comes to an EventFUL system, there is often a need for a special set of messaging infrastructure tools. 
+
+
+TK Messaging infra. compare and contrast sync and async
+TK highlight how important this is for an async interaction
+
+### People
+
+Tk highilght that we need to design for people, not just systems. Catalog the types of people.
+
 
 ## Coupling
 
-One of the goals you'll often hear software archtiects talk about is less or looser coupling between systems. [Coupling is TK.] The advantage of a system with less coupling between components is that change can happen indepentally. That means if we change the code in one component we won't need to change the code in other components in the system.
+In a software system, we say two components have a high degree of coupling when they are highly dependent on each other. High coupling means that a change to one software component will necessitate changes to another component that is dependent on it. This concept of coupling in software design has been with us for a long time. The term coupling comes from Larry Constantine and his work on structured design in the late 1960s and early 1970s. It's been a long time since Constantine first identified the costs of coupling, but years later software designers still find themselves battling to reduce coupling costs.
 
 [TK sidenote - Larry Constantine, structured design]
 
-Loose coupling can enable a software team to realise great benefits. In a truly loosely coupled systems, the cost of changing code is reduced because the impact of a change is well bounded. For example, if two modules A and B are loosely coupled, I can run a project to change the code in module A without having to change, test or coordinate with module B at all. That can greatly in crease change velocity and cost. 
+That's because high degrees of coupling makes software changes more expensive and harder to execute. Coupling increases the amount of change work we need to do - a change to one component requires a team to change other dependent components to avoid breaking the system. In a complex software system, changes to a component with high coupling can create a massive wave of change, as each component's change triggers a corresponding change in another dependent module. In practice, this becomes a change coordination nightmare as changes need to be managed across multiple teams. In systems with high degrees of coupling, the pace of change can grind to a halt.
 
-In realty, coupling isn't a binary characteristic that you can just turn off or on. It turns out to be a spectrum with many different facets (footnote - Eric's paper). You can get the benefits of loosely coupled systems if you can manage to actually de-couple the parts that matter. 
+### In Pursuit of Looser Coupling
 
-### The Loosely Coupled Event System
+It's no wonder that software designers prioritise patterns, principles and technologies that make it easier to reduce software coupling. In fact, the goal of _looser coupling_ between components has heavily influenced the way we design and build software. This focus has lead to object oriented programming patterns like _Abstract Factory_, _Facade_, _Visitor_ and _Iterator_ to reduce the code changes we need to make within our applications. 
 
-Event-based architectures and asynchrounous APIs are often touted as being "loosely coupled". That's true to an extent, but be careful - it may not be de-coupled in a way that is useful to your needs. As we described earlier, de-coupling software components helps us reduce the amount of effort we need to spend on writing and maintianing code. So, does a decoupled asynchronous API help us do that?
+Similarly, there's been a long history of reducing coupling for API based software architectures. Corba, XML, SOAP, REST and microservices integrations have all been introduced and popularised largely because they offer the promise of "looser coupled" systems. Each new wave of an integration style brings the promise of finally solving the "coupling problem". When the circumstances are right, this leads to a wave of mass adoption and sadly it often results in discrediting of an existing integration style. This is almost always followed closely by a wave of discontentment as software designers realise that the coupling hasn't disappeared.
 
-As we described in chapter [x], an asynchronous API has some unique interaction characteristics. Instead of a request-reply model, asynchronous APIs often use a publish-subsribe model, in which multiple subscribers consume asynchronous event messages. We also described the important role of infrastructure and how it further seperates the event publisher from the consumer.
+Within this narrative, its easy to feel like the situation is hopeless. But, don't be fooled! As an industry, we've made steady progress towards better architectural patterns that fit the technology of the day. Our ability to change software quickly has vastly improved thanks to the hard work and innovative ideas of many people. The real danger is in viewing coupling as a simple, binary property that is either "loose" or "tight". The reality is a bit more complex. In fact, in their paper on the facts of coupling, Erik Wilde and Cesare Pautasso list twelve different types of coupling that can exist, including discovery, binding, evolution and models.
+
+As the event-driven, asynchronous style of integration gains popularity, we're hearing the refrain of a silver bullet for coupling again. Asynchronous communication is being held up as an example of an integration style that does "loose coupling" properly. There are in fact, some aspects of an Eventful style that reduce software coupling. But, if you're building an Eventful system it's important that you understand what aspects of loose coupling you get for free and which ones you'll need to work hard to get.
+
+### The Loosely Coupled Eventful System
+
+In an API interaction, coupling is natural and unavoidable. When one component is providing a service or producing an output, other components will naturally form a _dependency_ on it. But, the goal for most software designers is to reduce that dependency so that the components are _loosely coupled_. That means that a change to one of the components that provides a service or produces data should have as small an impact as possible on the other dependent components.
+
+As we discussed in chapter [X] (Tk - callback to Mike's chapter on differint styles/patterns), Eventful architectures can take a number of different forms. We also learned that unlike synchronous interactions, Eventful communication goes in a single direction. 
+
+is an issue when a change in 
+
+////
+Event-based architectures and asynchrounous APIs are often touted as being "loosely coupled". That's true to an extent, but be careful - it may not be de-coupled in a way that is useful to your needs. As we described earlier, de-coupling software components helps us reduce the amount of effort we need to spend on writing 
+and maintianing code. So, does a decoupled asynchronous API help us do that?
+////
+
+(TK - this should back reference thee eventful API styles that Mike is writing)
+As we described in chapter [x], an asynchronous API has some unique interaction characteristics. Instead of a request-reply model, asynchronous APIs often use a publish-subscribe model, in which multiple subscribers consume asynchronous event messages. We also described the important role of infrastructure and how it further separates the event publisher from the consumer.
 
 It's this separation of the event message publisher from the event message consumer that people often focus on. By implementing components that can publish event messages to an eventing infrastructure, we can "de-couple" the event publisher form the consumer. The developers who write the event publishing component don't need to coordinate with event consumers in order for their messages to be picked up and received. They only need to know how to send event messages into the infrastructure - the rest is up to someone else to figure out.
 
@@ -83,21 +208,59 @@ TK RPC story as build up?
 
 TK kafka model (and others)
 
-## Time
-TK need to remember what this was.. think it had to with back-office vs real-time distinctions that we used to have
+## Latency (Time)
+
+So far, we've looked at eventful systems through the lens of code changes (through coupling) and through the lens of message transmission as a factor of distance. These factors have helped us see how an eventful system impacts two software components that need to interact. But, the final characteristic we'll look at is a bit broader in nature - we need to consider how an integration architecture is impacted by the time it takes for work to be completed.
+
+In software engineering, latency is a measure of how long something takes from the point of input to the point that output is received. For example, in a software application, 
+
+### Message Latency
+
+TK impacted by the distance and chattiness factors.
+
+### Transaction Latency
+
+TK long-running tasks
+
+### Design Latency
+
+TK need to remember what this is.
 
 *(runtime latency, build-time latency, design-time latency?)*
 
-### Interaction Patterns(?)
-TK
+## What does a good Event-System look like?
 
-### ???
-TK
+TK this section ties all the concepts together from a quality perspective. Can be inspred by Fielding's chapter 2 and chapter 3
+
+TK (mamund) one thing I really like about Fielding's system properties narrative is that he calls out how his constraints promote the desired properties. wonder if we have the same oppty here? these are the properties. are there constraints we recommend somewhere, too? 
+
+### Changeability
+
+TK - descrive changeability (modifiability, evolveability, extensbility) in therms of concepts in this chapter
+
+### Maintainability
+
+TK - describe maintainability 
+
+### Observability
+
+### Reliability and Scalability
+
+TK - describe reliability and scalability in terms of concepts in this chapter
+
+### Usability
+
+TK - describe usability in terms of concepts in this chapter
+
+### Comparing the Eventful and REStful systems
+
+TK aspirational
+TK maybe transalte fielding's table and do the columns for eventful 
 
 ## Summary
 TK
 
-## References
+## Additional Reading
 TK
 
 

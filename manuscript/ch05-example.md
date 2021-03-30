@@ -1,7 +1,10 @@
 {id: ch05}
-# 5. Customer Onboarding Example (Mike)
+# 5. Customer Onboarding Example 
 
-*(15 pgs)*
+<!-- 
+ Mike
+ (15 pgs)
+-->
 
 *(would prob. kill this or try to weave in)*
 
@@ -41,7 +44,7 @@ TK
 ## Summary 
 TK
 
-## References
+## Additional Reading 
 TK
 
 
