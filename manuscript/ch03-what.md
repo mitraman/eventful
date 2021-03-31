@@ -116,6 +116,15 @@ To support this persistent state for messages, Eventful infrastructure designs n
 
 (TK not sure what the markdown equivalent of this is yet.)
 
+<!--
+use this:
+
+title
+: para
+title
+: para
+
+-->
 Data Storage::
   Event messages will need to be stored, so you'll need to pay attention to the system qualities of the storage solution you choose. Particularly in terms of its "non-functional" qualities. How easily can the data storage system scale as the number of messages grows? How is performance impacted when multiple concurrent writes need to be performed? What is the mechanism for recovering from a failure? How is the storage solution backed up and archived securely? 
 
