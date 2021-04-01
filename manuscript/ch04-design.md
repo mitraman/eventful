@@ -49,7 +49,7 @@ The first three items in the list (Purpose, Actions, & Data) are **required** el
 
 Below is a brief example of an **API Story** document.
 
-![Example API Story](resources/companystory.jpg)
+![Example API Story](resources/company-story.png)
 
 The **API Story** document should be reviewed with all the appropriate project stakeholders and addtions/corrections made as needed. The story document should be checked into the project's design repository and tracked just like any other project assets.
 
