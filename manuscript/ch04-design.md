@@ -27,6 +27,8 @@ TK
 ## Design Process
 TK
 
+(TK note: update the actual content of the story below to better prep for various EDA examples (EN, ECS, & ES messages, channels/topics, persona, etc.)
+
 ### Uncover the Story 
 As in all API design projects, the right place to start is with a *story*. We advocate a simple approach to documenting an **API Story** using a simple five-part template:
 
@@ -68,10 +70,16 @@ TK
 
 *(output: Domain Vocabulary)*
 
+ * consider using ALPS State Diagram to generate the documentation as well as a diagram
+ * https://github.com/koriym/app-state-diagram#alps-asd
+
 ### Define the Interface 
 TK
 
 *(output: AsyncAPI/proto3 Docs)*
+
+ * Consider using ALPS UNIFIED to generate the AsyncAPI documentation [if it works!]
+ * https://github.com/mamund/alps-unified#alps-unified
 
 ## Summary
 TK
