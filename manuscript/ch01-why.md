@@ -120,7 +120,7 @@ Asynchronous programming[^ch01-async] is ideal for handling heavy input-output (
 *EVENTful systems both rely upon and are driven by the use of reactive data production and asynchronous data-consumption patterns.*
 
 ### The Growth of Microservices 
-Another reason for the increase in EVENTful architecture is the continued success of the Microservice approach[^ch01-microservices] for desgining and building components. Similar to Service-Oriented Architecture (SOA[~ch01-soa]), microservices emphasizes creating small, independent components focused on a single business capability (search, data filtering, customer onboarding, etc.). Early versions of this model were introduced in the 2000s and around 2012 the name "microservices" was attached to this pattern.
+Another reason for the increase in EVENTful architecture is the continued success of the Microservice approach[^ch01-microservices] for desgining and building components. Similar to Service-Oriented Architecture (SOA[#ch01-soa]), microservices emphasizes creating small, independent components focused on a single business capability (search, data filtering, customer onboarding, etc.). Early versions of this model were introduced in the 2000s and around 2012 the name "microservices" was attached to this pattern.
 
 [^ch01-microservices]: <https://en.wikipedia.org/wiki/Microservices>
 
